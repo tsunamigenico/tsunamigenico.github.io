@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan F. González Carrasco</title>
+<meta name="description" content="Juan F. González Carrasco, profesor de la Universidad Andrés Bello e investigador adjunto de Cigiden R+: amenaza de tsunami, transferencia de esfuerzos a fallas corticales, remociones en masa, eventos en cascada y geología marina en Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&family=IBM+Plex+Mono:wght@400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · shape: latitude index, a scholar's page ordered north to south · genre: editorial · theme: custom · job: hire · idea: "the page is ordered by latitude: each line of work sits where it happens along the Chilean margin" · vibe: "sober field report, stone and deep Pacific"
+ * paper: oklch(96.5% 0.006 230) · accent: oklch(46% 0.12 222) · display: Albert Sans · body: Source Serif 4 · hero: name, one sentence and two actions on the left, a schematic map of study sites on the right · nav: wordmark, six section links and a language switch, sticky · footer: one line of affiliation and the update date · imagery: none supplied, a Natural Earth outline map of real study sites · signature: the site map of papers and supervised theses
+ * axes: light/grotesk-sans/chromatic-blue · posture: restrained, one dark band for the thesis section · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R5 V4 · weakest: P, a sober academic page argues little; the latitude order is the argument and it runs from the hero to the research list */
+/* Hallmark · answered F4 · the hero holds the one filled button; the thesis band uses an outlined one on dark */
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.9375rem; --text-md: 1.125rem; --text-lg: 1.25rem;
+  --text-display: clamp(2.75rem, 4vw + 1.25rem, 4.75rem);
+  --text-section: clamp(2rem, 1.8vw + 1.2rem, 3rem);
+  --text-title: clamp(1.25rem, 0.5vw + 1rem, 1.5rem);
+  --text-lead: clamp(1.1875rem, 0.4vw + 1.05rem, 1.375rem);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --dur-micro: 140ms; --dur-short: 180ms; --dur-switch: 220ms;
+  --container: 1280px; --gutter: 64px; --gap-columns: 40px; --section-gap: 144px; --section-gap-s: 120px;
+  --z-sticky-nav: 300; --z-toast: 500;
+
+  --color-paper: oklch(96.5% 0.006 230);
+  --color-paper-2: oklch(93.2% 0.009 230);
+  --color-paper-3: oklch(89% 0.011 232);
+  --color-ink: oklch(23% 0.03 242);
+  --color-ink-2: oklch(36% 0.03 242);
+  --color-muted: oklch(47% 0.02 240);
+  --color-rule: oklch(84% 0.012 235);
+  --color-rule-strong: oklch(62% 0.018 238);
+  --color-accent: oklch(46% 0.12 222);
+  --color-accent-strong: oklch(38% 0.11 224);
+  --color-accent-ink: oklch(97.5% 0.006 230);
+  --color-focus: oklch(49% 0.18 222);
+  --color-p27: oklch(54% 0.2 27);
+  --color-field: oklch(25% 0.035 238);
+  --color-field-2: oklch(30% 0.035 238);
+  --color-field-ink: oklch(95% 0.008 230);
+  --color-field-muted: oklch(80% 0.018 230);
+  --color-field-rule: oklch(42% 0.03 238);
+  --color-field-accent: oklch(82% 0.09 210);
+  --color-field-focus: oklch(84% 0.12 210);
+
+  --font-display: "Albert Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-label: "Albert Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+  --radius: 4px; --radius-pill: 999px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-padding-top: var(--space-3xl); scrollbar-color: var(--color-muted) var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.65; font-synthesis: none; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--color-ink); overflow-wrap: break-word; min-width: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; text-wrap: pretty; }
+main p, .pub, .past li, .t27__steps li { text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 3 3; }
+.footer p, .thesis__mail { text-align: left; hyphens: manual; }
+ul, ol, dl, dd { margin: 0; padding: 0; }
+li { list-style: none; }
+[hidden] { display: none !important; }
+button { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); font-family: var(--font-label); }
+.skip:focus-visible { top: var(--space-md); }
+
+/* nav */
+.nav { position: sticky; top: 0; z-index: var(--z-sticky-nav); background: var(--color-paper); border-bottom: 1px solid var(--color-rule); }
+.nav__in { display: flex; align-items: center; gap: var(--space-lg); min-height: 64px; }
+.wordmark { font-family: var(--font-display); font-weight: 600; font-size: var(--text-md); letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; margin-right: auto; }
+.nav__links { display: flex; gap: var(--space-2xs); font-family: var(--font-label); font-size: var(--text-sm); }
+.nav__links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-xs); color: var(--color-ink-2); text-decoration: none; white-space: nowrap; border-radius: var(--radius); transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
+.nav__links a:active { background: var(--color-paper-3); }
+
+/* language switch */
+.lang { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; padding: var(--space-3xs); border: 1px solid var(--color-rule-strong); border-radius: var(--radius-pill); font-family: var(--font-label); font-size: var(--text-sm); }
+.lang::before { content: ""; position: absolute; top: var(--space-3xs); bottom: var(--space-3xs); left: var(--space-3xs); width: calc(50% - var(--space-3xs)); border-radius: var(--radius-pill); background: var(--color-paper-3); transition: transform var(--dur-switch) var(--ease-out); }
+html[lang="en"] .lang::before { transform: translateX(100%); }
+.lang button { position: relative; min-height: 40px; min-width: 44px; padding: 0 var(--space-sm); border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-ink-2); cursor: pointer; white-space: nowrap; transition: color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.lang button:active { transform: scale(0.97); }
+.lang button[aria-pressed="true"] { color: var(--color-ink); cursor: default; }
+.lang button[aria-pressed="true"]:active { transform: none; }
+.lang button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.lang button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-2xl); align-items: center; padding-block: var(--space-3xl) var(--space-3xl); min-height: min(calc(100svh - 64px), 820px); }
+.hero h1 { font-size: var(--text-display); line-height: 1.02; letter-spacing: -0.03em; max-width: 13ch; }
+.lede { margin-top: var(--space-lg); font-size: var(--text-lead); line-height: 1.5; color: var(--color-ink-2); max-width: 40ch; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xl); }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-lg); border: 1px solid var(--color-accent); border-radius: var(--radius); background: var(--color-accent); color: var(--color-accent-ink); font: 600 var(--text-sm)/1 var(--font-label); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:active { transform: scale(0.98); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn--quiet { background: transparent; color: var(--color-ink); border-color: var(--color-rule-strong); }
+.affil { margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-rule); display: grid; gap: var(--space-xs); font-family: var(--font-label); font-size: var(--text-sm); line-height: 1.45; color: var(--color-ink-2); max-width: 52ch; }
+
+/* site map */
+.sites { margin: 0; justify-self: end; width: 100%; max-width: 380px; }
+.map { display: block; width: 100%; height: auto; overflow: visible; }
+.map__land { stroke-linejoin: round; }
+.map__land--other { fill: var(--color-paper-2); stroke: var(--color-rule-strong); stroke-width: 0.5; }
+.map__land--chile { fill: var(--color-paper-3); stroke: var(--color-ink-2); stroke-width: 0.8; }
+.map__grat { stroke: var(--color-rule); stroke-width: 1; stroke-dasharray: 2 4; }
+.map__tick { font-family: var(--font-outlier); font-size: 10px; fill: var(--color-muted); }
+.map__label { font-family: var(--font-label); font-size: 13.5px; fill: var(--color-ink); }
+.map__label--sm { font-size: 12.5px; }
+.map__band { fill: color-mix(in oklch, var(--color-accent) 22%, transparent); stroke: var(--color-accent); stroke-width: 1; }
+.map__ring { fill: none; stroke: var(--color-p27); stroke-width: 2; }
+.map__ringdot { fill: var(--color-p27); }
+.map__area { fill: color-mix(in oklch, var(--color-p27) 20%, transparent); stroke: var(--color-p27); stroke-width: 1.2; }
+.map__label--p27 { fill: var(--color-p27); }
+.map__p27 { cursor: pointer; }
+.map__p27:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.map__leader--p27 { stroke: var(--color-p27); }
+.map__sep { stroke: var(--color-rule); stroke-width: 1; }
+.map__leader { fill: none; stroke: var(--color-muted); stroke-width: 0.8; }
+.map__dot--A { fill: var(--color-accent); stroke: var(--color-paper); stroke-width: 1.5; }
+.map__dot--T { fill: var(--color-paper); stroke: var(--color-ink); stroke-width: 1.8; }
+.map__dot--B { fill: var(--color-accent); stroke: var(--color-ink); stroke-width: 1.8; }
+.sites figcaption { margin-top: var(--space-md); display: grid; gap: var(--space-xs); font-family: var(--font-label); font-size: var(--text-xs); line-height: 1.5; color: var(--color-muted); }
+.sites__keys { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-md); color: var(--color-ink-2); }
+.sites__key { display: inline-flex; align-items: center; gap: var(--space-2xs); }
+.sites__key svg { width: 14px; height: 14px; }
+
+/* sections */
+.section { padding-block: var(--section-gap-s); }
+.section--rule { border-top: 1px solid var(--color-rule); }
+.head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); align-items: start; }
+.head h2 { font-size: var(--text-section); line-height: 1.08; max-width: 14ch; }
+.head__intro { font-size: var(--text-lead); line-height: 1.55; color: var(--color-ink-2); max-width: 52ch; padding-top: var(--space-xs); }
+
+/* research lines */
+.lines { margin-top: var(--space-2xl); border-top: 1px solid var(--color-rule); }
+.line { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-block: var(--space-2xl); border-bottom: 1px solid var(--color-rule); }
+.line__where { display: grid; gap: var(--space-2xs); align-content: start; }
+.line__lat { font: 400 clamp(1.5rem, 1vw + 1.1rem, 2rem)/1.1 var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-accent-strong); letter-spacing: -0.02em; }
+.line__lat--word { font-family: var(--font-display); font-weight: 600; }
+.line__place { font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-muted); }
+.line h3 { font-size: var(--text-title); line-height: 1.25; max-width: 40ch; }
+.line p { margin-top: var(--space-sm); max-width: 64ch; }
+
+/* projects */
+.projects { margin-top: var(--space-2xl); border-top: 2px solid var(--color-ink); }
+.project { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gap-columns); padding-block: var(--space-xl); border-bottom: 1px solid var(--color-rule); }
+.project .meta { margin-top: var(--space-2xs); }
+.project h3 { font-size: var(--text-title); line-height: 1.25; max-width: 30ch; }
+.project__note { margin-top: var(--space-xs); color: var(--color-ink-2); max-width: 48ch; }
+.meta { margin-top: var(--space-lg); display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: var(--space-lg); row-gap: var(--space-xs); font-family: var(--font-label); font-size: var(--text-sm); line-height: 1.45; }
+.meta dt { color: var(--color-muted); }
+.meta dd { color: var(--color-ink); }
+
+/* career */
+.cv { margin-top: var(--space-2xl); border-top: 1px solid var(--color-rule); }
+.cv__row { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-block: var(--space-md); border-bottom: 1px solid var(--color-rule); }
+.cv__years { font-family: var(--font-label); font-size: var(--text-sm); font-variant-numeric: tabular-nums; color: var(--color-muted); padding-top: var(--space-3xs); }
+.cv__what { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--space-lg); }
+.cv__inst { font-family: var(--font-display); font-weight: 600; font-size: var(--text-md); line-height: 1.4; }
+.cv__role { color: var(--color-ink-2); line-height: 1.5; }
+
+/* publications */
+.pubs { margin-top: var(--space-2xl); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); }
+.pubs__body, .thesis__body { grid-column: 2; }
+.pubs__body { display: grid; gap: 0; max-width: 72ch; counter-reset: pub; border-top: 1px solid var(--color-rule); }
+.pub { padding-block: var(--space-md); border-bottom: 1px solid var(--color-rule); line-height: 1.55; }
+.pub__authors { color: var(--color-ink-2); }
+.me { color: var(--color-ink); font-weight: 600; }
+.pub__title { color: var(--color-ink); }
+.pub__venue { color: var(--color-ink-2); }
+.pub__venue i { font-style: normal; }
+.pub__doi { display: inline-block; font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-accent-strong); text-decoration-color: var(--color-rule); overflow-wrap: anywhere; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.fill { padding: 0 0.25em; border: 1px dashed color-mix(in oklch, var(--color-muted) 70%, transparent); border-radius: 3px; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* teaching */
+.section--well { background: var(--color-paper-2); }
+.courses { margin-top: var(--space-2xl); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gap-columns); border-top: 1px solid var(--color-rule); }
+.course { display: grid; gap: var(--space-2xs); padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+.course__name { font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); line-height: 1.3; letter-spacing: -0.01em; }
+.course__meta { font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-muted); }
+.teach-note { margin-top: var(--space-xl); max-width: 64ch; margin-left: auto; margin-right: 0; }
+
+/* thesis band */
+.band { background: var(--color-field); color: var(--color-field-ink); }
+.band h2, .band h3 { color: var(--color-field-ink); }
+.band .head__intro { color: var(--color-field-muted); }
+.band :focus-visible { outline-color: var(--color-field-focus); }
+.thesis { margin-top: var(--space-2xl); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); }
+.thesis__block + .thesis__block { margin-top: var(--space-xl); }
+.thesis h3 { font-size: var(--text-title); line-height: 1.25; }
+.topics { margin-top: var(--space-md); border-top: 1px solid var(--color-field-rule); }
+.topics li { padding-block: var(--space-sm); border-bottom: 1px solid var(--color-field-rule); }
+.thesis p { margin-top: var(--space-sm); max-width: 60ch; color: var(--color-field-ink); }
+.band .btn--quiet { margin-top: var(--space-xl); color: var(--color-field-ink); border-color: var(--color-field-muted); }
+.band .fill { color: var(--color-field-muted); border-color: var(--color-field-muted); }
+.band a:not(.btn) { color: var(--color-field-accent); }
+.past li { line-height: 1.5; }
+.past__who { color: var(--color-field-muted); }
+.thesis__mail { margin-top: var(--space-xs) !important; font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-field-muted) !important; }
+
+/* thesis topics 2027 */
+.t27 { margin-top: var(--space-2xl); border-top: 1px solid var(--color-field-rule); }
+.t27 > li { border-bottom: 1px solid var(--color-field-rule); }
+.t27 summary { list-style: none; display: grid; grid-template-columns: 3rem minmax(0, 1fr) var(--space-lg); gap: var(--space-md); align-items: baseline; min-height: 44px; padding-block: var(--space-md); cursor: pointer; border-radius: var(--radius); }
+.t27 summary::-webkit-details-marker { display: none; }
+.t27 summary:focus-visible { outline: 2px solid var(--color-field-focus); outline-offset: 2px; }
+.t27__num { font-family: var(--font-label); font-size: var(--text-sm); font-variant-numeric: tabular-nums; color: var(--color-field-muted); }
+.t27__main { display: grid; gap: var(--space-2xs); }
+.t27__title { font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); line-height: 1.3; letter-spacing: -0.01em; color: var(--color-field-ink); transition: color var(--dur-short) var(--ease-out); }
+.t27__place { font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-field-muted); }
+.t27__lat { margin-left: var(--space-sm); font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
+.t27__chev { align-self: center; justify-self: end; width: 9px; height: 9px; border-right: 1.5px solid var(--color-field-muted); border-bottom: 1.5px solid var(--color-field-muted); transform: rotate(45deg); transition: transform var(--dur-short) var(--ease-out); }
+.t27 details[open] .t27__chev { transform: rotate(225deg); }
+.t27__body { display: grid; gap: var(--space-sm); padding: 0 var(--space-lg) var(--space-lg) calc(3rem + var(--space-md)); max-width: calc(64ch + 3rem); }
+.t27__q { color: var(--color-field-ink); }
+.t27__steps { padding-left: 1.25em; color: var(--color-field-ink); }
+.t27__steps li { list-style: decimal; padding-left: var(--space-2xs); }
+.t27__steps li::marker { color: var(--color-field-muted); font-family: var(--font-label); }
+.t27__tags { font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-field-muted); }
+
+/* contact */
+.contact { margin-top: var(--space-2xl); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); }
+.contact .meta { margin-top: 0; font-size: var(--text-md); row-gap: var(--space-sm); }
+.profiles { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); }
+.contact a[href] { text-decoration-color: var(--color-rule-strong); transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.profiles a, .head__intro a { text-decoration-color: var(--color-rule-strong); }
+.cv__extra { margin-top: var(--space-xl); max-width: 72rem; }
+.cv__extra dd { color: var(--color-ink-2); line-height: 1.5; }
+.pending { color: var(--color-muted); text-decoration: underline dashed; text-decoration-color: var(--color-muted); text-underline-offset: 0.22em; }
+.advice h3 { font-size: var(--text-title); line-height: 1.25; }
+.advice p { margin-top: var(--space-sm); max-width: 62ch; }
+
+.footer { padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-muted); }
+.footer__in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs) var(--space-xl); }
+
+/* hover only where a pointer can hover; touch gets the :active states */
+@media (hover: hover) and (pointer: fine) {
+  .nav__links a:hover { color: var(--color-ink); background: var(--color-paper-2); }
+  .lang button:not([aria-pressed="true"]):hover { color: var(--color-ink); }
+  .btn:hover { background: var(--color-accent-strong); border-color: var(--color-accent-strong); }
+  .btn--quiet:hover { background: var(--color-paper-2); border-color: var(--color-ink-2); }
+  .band .btn--quiet:hover { background: var(--color-field-2); border-color: var(--color-field-ink); }
+  .t27 summary:hover .t27__title { color: var(--color-field-accent); }
+  .wordmark:hover { color: var(--color-accent-strong); }
+  .pub__doi:hover, .contact a:hover, .head__intro a:hover { text-decoration-color: var(--color-accent); }
+}
+.wordmark { transition: color var(--dur-short) var(--ease-out); }
+
+@media (max-width: 60rem) {
+  :root { --gutter: 24px; --section-gap-s: 88px; --gap-columns: 24px; }
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: var(--space-2xl); gap: var(--space-2xl); }
+  .head, .line, .pubs, .thesis, .contact { grid-template-columns: minmax(0, 1fr); }
+  .pubs__body, .thesis__body { grid-column: 1; }
+  .t27 summary { grid-template-columns: 2rem minmax(0, 1fr) var(--space-md); gap: var(--space-sm); }
+  .t27__body { padding-left: calc(2rem + var(--space-sm)); padding-right: 0; }
+  .t27__lat { display: block; margin-left: 0; }
+  .line { gap: var(--space-sm); }
+  .line__where { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: var(--space-sm); }
+  .courses, .project, .cv__row, .cv__what { grid-template-columns: minmax(0, 1fr); }
+  .cv__row, .cv__what { gap: var(--space-2xs); }
+  .project { gap: var(--space-md); }
+  .teach-note { margin-left: 0; }
+}
+@media (max-width: 48rem) {
+  .nav__in { flex-wrap: wrap; row-gap: 0; padding-top: var(--space-2xs); }
+  .nav__links { order: 3; width: 100%; flex-wrap: wrap; column-gap: 0; margin-inline: calc(-1 * var(--space-xs)); padding-bottom: var(--space-2xs); }
+  .nav__links a { font-size: var(--text-md); }
+  .nav { position: static; }
+}
+@media (max-width: 40rem) {
+  :root { --gutter: 16px; --section-gap-s: 64px; --text-md: 1.0625rem; }
+  .meta { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .meta dd + dt { margin-top: var(--space-sm); }
+  .hero h1 { max-width: 11ch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lang::before, .lang button, .btn, .t27__chev { transition-property: color, background-color, border-color; }
+  .btn:active, .lang button:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span data-lang="es">Saltar al contenido</span><span data-lang="en" hidden>Skip to content</span></a>
+
+<header class="nav">
+  <div class="container nav__in">
+    <a class="wordmark" href="#top" aria-label="Juan F. González Carrasco, inicio">J. F. González Carrasco</a>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#investigacion"><span data-lang="es">Investigación</span><span data-lang="en" hidden>Research</span></a>
+      <a href="#proyectos"><span data-lang="es">Proyectos</span><span data-lang="en" hidden>Projects</span></a>
+      <a href="#publicaciones"><span data-lang="es">Publicaciones</span><span data-lang="en" hidden>Publications</span></a>
+      <a href="#docencia"><span data-lang="es">Docencia</span><span data-lang="en" hidden>Teaching</span></a>
+      <a href="#tesis"><span data-lang="es">Tesis</span><span data-lang="en" hidden>Theses</span></a>
+      <a href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en" hidden>Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="es" lang="es" aria-pressed="true">Español</button>
+      <button type="button" data-set="en" lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="container hero" id="top" aria-labelledby="name">
+    <div>
+      <h1 id="name">Juan F. González Carrasco</h1>
+      <p class="lede" data-lang="es">Evalúo la amenaza de tsunami en Chile y estudio cómo un terremoto de subducción desata otras amenazas en cascada.</p>
+      <p class="lede" data-lang="en" hidden>I assess tsunami hazard in Chile and study how a subduction earthquake sets off cascading hazards.</p>
+      <div class="actions">
+        <a class="btn" href="#tesis"><span data-lang="es">Temas de tesis 2027</span><span data-lang="en" hidden>2027 thesis topics</span></a>
+        <a class="btn btn--quiet" href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en" hidden>Contact</span></a>
+      </div>
+      <ul class="affil" data-lang="es">
+        <li>Profesor asistente, Escuela de Ciencias de la Tierra, Facultad de Ingeniería, Universidad Andrés Bello, sede Viña del Mar</li>
+        <li>Investigador adjunto, línea de amenazas, Cigiden R+</li>
+        <li>Doctor en Ciencias mención Geología (Universidad Católica del Norte, 2019) y licenciado en Oceanografía (PUCV, 2004)</li>
+      </ul>
+      <ul class="affil" data-lang="en" hidden>
+        <li>Assistant professor, School of Earth Sciences, Faculty of Engineering, Universidad Andrés Bello, Viña del Mar campus</li>
+        <li>Associate researcher, hazards line, Cigiden R+</li>
+        <li>PhD in Science, Geology (Universidad Católica del Norte, 2019); BSc in Oceanography (PUCV, 2004)</li>
+      </ul>
+    </div>
+
+    <figure class="sites" aria-labelledby="map-cap">
+      <svg class="map" viewBox="0 0 400 832" role="img" aria-labelledby="map-cap"><defs><clipPath id="map-clip"><rect width="400" height="736"/></clipPath></defs><g clip-path="url(#map-clip)"><line class="map__grat" x1="0" x2="400" y1="30.5" y2="30.5"/><text class="map__tick" x="2" y="27.5">15° S</text><line class="map__grat" x1="0" x2="400" y1="138" y2="138"/><text class="map__tick" x="2" y="135">20° S</text><line class="map__grat" x1="0" x2="400" y1="245" y2="245"/><text class="map__tick" x="2" y="242">25° S</text><line class="map__grat" x1="0" x2="400" y1="352" y2="352"/><text class="map__tick" x="2" y="349">30° S</text><line class="map__grat" x1="0" x2="400" y1="459.5" y2="459.5"/><text class="map__tick" x="2" y="456.5">35° S</text><line class="map__grat" x1="0" x2="400" y1="566.5" y2="566.5"/><text class="map__tick" x="2" y="563.5">40° S</text><line class="map__grat" x1="0" x2="400" y1="673.5" y2="673.5"/><text class="map__tick" x="2" y="670.5">45° S</text><path class="map__land map__land--other" d="M145 -200L145 -198.5L144 -198L143 -198L142 -199L140.5 -198.5L139.5 -198.5L138 -199.5L137.5 -201L136.5 -202L134 -201.5L132 -201.5L130.5 -201.5L129 -201.5L128 -200L127 -198.5L126 -197.5L122.5 -196.5L121 -196.5L119.5 -196L117 -195.5L115.5 -195L112.5 -194.5L109.5 -194L107.5 -193L106.5 -192.5L105 -191.5L101.5 -189L99.5 -188L97.5 -185.5L95 -183.5L93 -182L90.5 -181.5L89.5 -181L89 -180L89.5 -179.5L89 -177L88 -173L88 -171L88 -170L86 -166.5L84.5 -163.5L83.5 -161.5L83 -160L83.5 -159L84.5 -156.5L85 -155L85 -153.5L85 -152L84 -151L83 -150L81.5 -150L78 -147.5L74.5 -144.5L73 -142.5L73 -141.5L72 -139L72.5 -138L73 -137L74 -135L74 -134L73.5 -133.5L72 -133.5L71.5 -133L70.5 -132.5L70 -133L69 -132.5L69 -132L69.5 -131L69.5 -130L69 -129L68.5 -129L69 -128L69.5 -127.5L70.5 -126.5L72 -125L73 -124.5L74 -124L74 -123L73.5 -122L73 -121.5L73 -120.5L74 -119.5L74.5 -119L75.5 -117.5L76 -116L76 -115L76.5 -114L77 -113L77 -112L78 -111L79 -110L80 -109.5L80.5 -109L81 -108.5L80.5 -107L81.5 -105.5L83.5 -104L85 -102L86 -100.5L88 -98L88 -95.5L86 -92L83.5 -89L87 -89L91 -89L95 -88L97.5 -87.5L99 -87L100.5 -86L101 -84.5L101.5 -83L101.5 -81.5L103 -80L103 -78.5L103 -76.5L103.5 -76.5L108.5 -76.5L114 -76.5L119 -76.5L121 -77L123 -79.5L124.5 -80.5L126 -81.5L127.5 -83.5L129 -84.5L130 -85.5L131.5 -87L132 -87.5L132.5 -88L134 -88.5L133.5 -87.5L133 -86L133 -84.5L133.5 -82.5L133 -81.5L132 -80L132 -77L132 -72.5L132 -68.5L132 -64L132 -58.5L132 -55L133 -55.5L134 -56L135.5 -54.5L137 -53.5L137.5 -53.5L139 -53.5L140 -54L143 -55.5L145 -56.5L147.5 -56.5L150.5 -56L152 -56L154.5 -51.5L156.5 -48L158 -44L160 -41L162.5 -36L164.5 -32L166.5 -28L169 -23L168.5 -21.5L167.5 -20.5L167.5 -19L166.5 -18L165.5 -17.5L164.5 -16L163.5 -14.5L163.5 -13L163.5 -4L163.5 -1.5L163 0.5L162 1.5L161.5 2.5L162.5 4.5L163.5 9L164.5 9.5L165 11.5L165.5 13L165.5 13.5L163.5 14.5L163 15L163 17.5L162 18L161 19.5L160 20.5L159.5 21.5L158.5 22L158.5 23.5L158 25.5L156.5 26.5L156 28.5L156 30L157 31.5L159.5 35L160 36L158.5 38L157.5 39.5L155 43.5L155 44.5L155.5 46.5L159 55.5L159.5 56L160.5 57L162.5 57L165 58L166 59L166 59.5L164.5 60.5L163 61.5L162.5 62.5L162.5 64L162.5 66L162 66.5L160.5 67.5L159.5 68.5L158 70.5L156 73.5L155 74.5L155 75.5L153.5 76L151.5 78L151 79L151.5 80L152.5 80.5L153.5 82L153.5 83.5L153.5 84.5L152 86L150 87.5L148 88L147 88.5L147 90.5L148 93L148 95L147.5 97L145.5 99.5L143 101L140.5 102L139 102L137 102L136.5 102.5L135 101L128.5 96L126.5 93.5L124.5 92.5L119 88L118.5 87L118 82.5L117 81.5L115.5 80L110.5 78L109 77L107 75L104.5 73.5L101.5 71L99.5 68.5L97.5 67.5L91.5 65.5L88.5 63.5L82.5 60.5L80 58.5L73.5 56.5L72 55.5L65.5 50.5L61.5 48.5L58 45.5L47.5 39.5L46 37.5L44.5 34.5L42 32.5L39.5 28.5L35.5 26L32 23L30.5 20L28 16L27.5 14L25 12L25 8L23.5 6.5L24.5 5.5L26 5L27.5 -1L26.5 -4L22.5 -10L21 -12.5L20 -16L18.5 -18L16.5 -22.5L15 -26L12 -29L11 -30L10.5 -31.5L9 -32.5L9 -35L7.5 -41L6 -43.5L0 -49L-0.5 -51L-1 -54.5L-2 -58.5L-9 -71L-10.5 -74.5L-12.5 -80.5L-14 -84L-15.5 -90L-18 -94.5L-19.5 -98.5L-21.5 -103.5L-21.5 -106L-24.5 -110.5L-26.5 -115L-29 -118.5L-32 -121L-33 -123L-37 -131.5L-37.5 -134.5L-40.5 -139.5L-43 -143L-45 -145.5L-47 -148L-60.5 -156L-65 -159.5L-66.5 -161L-67.5 -163.5L-67 -165L-65.5 -166L-63.5 -165L-62.5 -165.5L-61.5 -167.5L-61.5 -170L-63 -173.5L-67 -180L-66.5 -181.5L-66 -183L-67.5 -186L-69.5 -188.5L-70.5 -190.5L-69.5 -198L-68.5 -200L-62 -207.5L-60 -210.5L-57.5 -213L-54.5 -216L-51 -218L-50.5 -217.5L-50 -217.5L-50 -216.5L-50 -216L-49.5 -215L-49.5 -214L-49 -213.5L-49 -212.5L-49 -211L-49.5 -210.5L-49 -209.5L-48.5 -207.5L-48.5 -207L-49.5 -206.5L-50 -206L-50.5 -205L-52 -205L-53.5 -205.5L-54.5 -205L-54.5 -203.5L-54.5 -202.5L-54 -201.5L-53.5 -200.5L-51.5 -200.5L-53.5 -198L-54 -196.5L-54 -196L-53 -195L-52 -195L-50.5 -196L-49.5 -197.5L-48.5 -198.5L-47.5 -198.5L-46 -198L-44.5 -196.5L-42 -195.5L-41 -195L-39.5 -195L-38 -195L-37 -194.5L-36 -193.5L-35.5 -190.5L-34.5 -188.5L-33.5 -187L-32.5 -185L-31 -184.5L-29.5 -184.5L-27.5 -184L-26.5 -184L-26 -185.5L-25.5 -186.5L-24.5 -186.5L-24.5 -187.5L-24.5 -188.5L-24.5 -189.5L-23.5 -190.5L-21 -192.5L-20 -193L-20 -194L-19.5 -195L-19.5 -196L-20 -197L-20 -198L-19.5 -199.5L-18.5 -201.5L-18 -204L-17.5 -205.5L-16.5 -206L-16.5 -207L-16 -208.5L-15 -210L-15 -211.5L-14.5 -212L-14.5 -213.5L-13.5 -217L-13.5 -218L-12.5 -218L-12 -217L-11.5 -216.5L-11.5 -216L-11 -216L-10 -216.5L-10 -217L-10.5 -218L-11 -218.5L-10.5 -219L-9.5 -220.5L-8.5 -222L-6 -225.5L-4.5 -227L-0.5 -228.5L2 -229.5L5 -230.5L8.5 -232L14 -234L18 -236L21.5 -238.5L24 -241L26 -242.5L29 -245L33 -250L35.5 -253.5L37.5 -256.5L39 -258L40 -262.5L41 -268L41.5 -270L42 -271L42.5 -270.5L43 -270L43.5 -270L44.5 -270L45 -270.5L44.5 -275.5L44.5 -276.5L44.5 -278L44.5 -279L43.5 -280L41.5 -282L41 -284L40.5 -285.5L39 -286.5L37.5 -287.5L37.5 -288L38.5 -288L40.5 -287.5L42 -287.5L43 -287.5L44 -288.5L45.5 -290L46 -290L47 -289.5L48.5 -288L49.5 -287.5L50.5 -286.5L51.5 -286.5L52.5 -286.5L53.5 -286.5L54 -285.5L54 -284.5L55.5 -283.5L57 -283L58 -281.5L59 -280.5L59.5 -279.5L60.5 -278.5L61.5 -276L62 -274.5L62.5 -273.5L62 -272.5L63 -271L64 -270L65 -269.5L67.5 -268.5L69 -267L70 -266.5L71 -265L72 -264.5L73.5 -264.5L75 -264L76 -262.5L76.5 -260.5L77.5 -259.5L78 -258L77.5 -255.5L78 -254.5L79 -253.5L81 -252.5L82.5 -252.5L83 -252.5L83.5 -251.5L84 -250.5L84.5 -248L85 -246L84.5 -244.5L84 -243.5L84.5 -242L86 -241L87.5 -240.5L88.5 -239.5L89.5 -239L91 -239L93 -239.5L94 -240L94.5 -240.5L95.5 -240L97 -239.5L99 -238.5L100.5 -239L102.5 -239.5L104 -239.5L105.5 -241L106.5 -241L107.5 -241.5L109 -243L110 -244.5L111 -244.5L112.5 -244L114.5 -243L116 -242L117 -241.5L118 -240.5L119.5 -240.5L121.5 -241L123 -242.5L125 -243L126 -243.5L127 -243L131 -240.5L132 -239L133.5 -239L134.5 -238L136.5 -237.5L137.5 -236.5L138.5 -236L139.5 -235L141 -234L142.5 -233.5L143 -233L143 -232L141.5 -229.5L139 -224.5L136.5 -220L132.5 -213.5L130.5 -209.5L131 -209.5L134 -208L135 -208L136 -208L137 -209L138 -209L138.5 -208.5L139.5 -207.5L140.5 -205L141 -204L142.5 -203L144 -201.5L145 -200Z"/><path class="map__land map__land--chile" d="M-22.5 430.5L-25.5 430.5L-26 430.5L-25.5 430L-25 429.5L-24 429L-23.5 429L-23 429L-22 429.5L-21.5 430L-22 430L-22.5 430.5ZM136.5 102.5L137 102L139 102L140.5 102L143 101L145.5 99.5L147.5 97L148 95L148 93L147 90.5L147 88.5L148 88L150 87.5L152 86L153.5 84.5L154 87L156.5 90L157 94L158 94.5L161.5 96L161.5 96.5L161 97L160.5 98L161 99.5L161.5 101L161.5 102.5L162 104.5L162.5 107L162.5 109L163.5 112.5L164 114.5L164 116L164.5 117L166 118.5L167.5 120L169 121.5L170.5 123L171.5 124L172.5 124.5L173 125L173.5 125.5L173 126L171 128.5L169 132L169 132.5L171 135L171.5 136L171.5 137L170.5 139L168.5 139.5L168 140L167.5 140.5L168.5 141L168 142.5L169 144.5L168.5 145L167.5 146L167.5 147L168 147.5L169 148.5L172.5 151L173 151.5L171.5 153.5L171.5 154.5L171.5 156L171.5 157L172 157.5L174 158L176 162L178.5 165.5L178.5 169L178.5 172.5L180 175.5L180 177.5L180.5 180.5L182.5 182L183 185L183 187L183 188L184.5 191.5L184.5 194L184 196.5L184 197.5L184.5 198.5L185.5 199L186 199.5L187.5 200L190 200L194 199L197.5 198.5L201 202L199.5 207.5L197 215.5L195 222L194.5 223L194.5 224.5L190 226L184 229L181 230L177.5 232L176.5 233.5L175.5 234L174 235L173.5 236.5L172.5 237L171.5 239.5L171.5 241.5L172 243L173 243.5L173.5 245L174 246L175 247L174.5 247.5L174 248L172.5 248.5L172 250L171 254L170.5 255.5L172 259L172.5 261L174 268L174 269.5L172 272.5L171 274L171 275.5L171 276.5L171 277.5L173 281L175 283.5L176 285L176 287.5L175.5 288.5L174.5 289L172 289.5L171 291L170 291L168.5 290L167.5 290.5L166 291L165.5 293L164 296.5L163 297.5L162.5 300L161 304L160 306L160 307.5L158.5 308.5L156.5 311L155.5 313L155 313.5L154 313.5L153 315.5L150.5 318L150 321.5L149 323L149 326L148 331.5L147.5 333L146 334L144.5 336L143.5 337.5L144.5 342.5L145.5 347L145.5 349.5L145 352.5L145 354L145.5 354.5L147 354.5L147 356L146.5 356.5L146 358L145 360L142.5 360.5L141.5 360L141 360.5L141 361.5L140.5 363L139 366.5L138 370L137.5 371.5L138 372.5L138.5 373.5L138.5 374L137.5 375L137 376L136 376.5L135.5 376L134.5 377L134 378.5L133.5 380.5L133.5 382.5L133 386L134.5 388L135.5 391.5L137 392.5L138 392.5L139 393L139.5 394L138.5 395.5L137.5 396L137.5 397L137.5 399L138 400.5L139.5 401.5L140 404L141 405L141 408.5L142 412.5L143.5 413.5L144 414L143.5 415.5L142.5 417L142 419L142.5 421L144 422L145 422.5L146 422L147.5 422.5L148 424L148 425L147.5 426.5L146.5 429.5L146.5 432L146.5 436.5L147 439.5L147 441.5L147 442.5L146.5 443.5L145 443.5L144 444L143.5 444.5L143 445.5L142.5 447L141.5 448.5L140.5 450.5L139.5 452.5L139 453.5L139 454.5L138.5 456L138 457.5L137 462.5L135.5 463.5L134.5 464L133.5 464.5L134 466L135.5 466.5L136 467.5L135.5 469L136.5 470.5L136.5 472.5L137 476L136.5 478L136.5 480L136.5 482L135.5 483.5L133.5 484L132.5 485.5L130.5 487L130.5 488L130 489L129.5 489.5L128 489.5L127 489.5L126 491L124.5 492L124 493L124 494.5L123.5 495.5L122.5 497L121.5 499L122.5 500.5L123 503.5L123 504.5L122 507L121.5 508.5L122 510.5L123 511.5L122 514L122 515.5L122 518.5L123.5 521.5L125 524.5L125 527.5L125.5 530.5L126 533L127 534L128 535L128 536.5L127 538L126 539.5L123.5 540L121.5 541L120 541.5L118.5 542.5L117.5 543.5L117 544.5L117.5 549.5L117.5 551L116.5 553.5L115.5 555.5L115.5 556L115.5 557L115 558L114 558L113 557.5L112 558L111.5 558.5L112 560L112.5 563L113 564L113 565L113 567L112 568.5L111 568.5L110 569L110 570L110 571.5L111.5 573L112 573.5L112 574.5L111 575L110 576L109.5 577.5L108.5 579.5L107.5 581L107.5 583.5L109 585.5L108.5 588L108.5 594L108.5 596.5L109 600L108.5 601L108 602L109.5 604.5L111 608.5L111 610.5L111 611.5L109 612.5L107.5 613L106.5 612L106 612.5L105 613.5L104.5 614.5L104 615.5L105 617L105.5 619.5L104.5 620.5L103.5 621.5L104 623L104 626L103.5 630.5L104.5 632L105.5 633L108.5 634L110.5 634.5L111 636L111 637L110 637.5L108 638L108 640L109.5 642L111 643.5L111.5 644.5L111.5 646L110.5 647L112 649L112.5 650.5L112 652L111 653.5L110 654.5L110 655.5L109.5 657.5L109.5 659L110 660.5L119 661.5L121.5 661.5L122.5 662.5L122.5 664L121 665.5L120.5 668.5L118.5 669L116.5 668L114.5 668.5L113 668.5L110.5 668.5L107 669L105 668.5L105 669.5L105.5 671.5L110 672L114 673L115.5 675L117 677L118.5 678.5L118.5 680.5L116 683L115.5 684.5L112 685L111 686L110.5 689L111 691.5L112.5 692.5L113.5 694L112.5 696L110 697L108.5 698.5L109.5 699.5L110.5 701L111 702L111.5 704L112 707.5L112 709L111.5 710L109 712L107.5 713L107 715L107 717L107 718.5L108 719.5L108 720.5L107 721L105.5 721.5L104.5 724L101 726L100 727L100 728.5L98.5 731L97.5 733L96.5 735L96.5 737.5L98.5 738L100 740L101 743L99.5 745.5L97 747L95.5 748L95 749L95.5 752L95 753.5L95 755L94 756L92.5 757L90 758L88 759L87 759.5L85.5 761.5L84.5 763.5L85 765.5L79 766L78.5 768L77 769L76.5 772L78 774L78.5 776.5L77.5 779L78 781.5L78 783.5L80 785.5L81.5 788.5L82.5 791L82.5 792.5L83 794L84 795L84.5 796.5L86 797L88.5 795.5L90 794.5L91 794.5L94.5 794.5L96.5 793.5L97.5 794L99 794.5L100 795.5L100.5 797.5L101 800L100.5 803L99.5 803.5L99.5 804L99.5 806L100.5 807L100.5 808.5L99.5 812L98.5 813.5L100 815.5L101.5 817L104 818L106 819.5L107.5 821L107 823L108 823.5L111.5 823.5L117.5 823.5L126.5 823.5L135 823.5L145 823.5L149.5 825L154 826.5L159.5 826.5L164.5 828L168.5 829L171 829.5L173.5 830L173.5 831L163 829L160.5 828L158.5 828L154.5 829.5L152.5 832.5L151.5 833.5L148.5 834.5L146 834.5L137 837.5L133.5 838L131.5 839L129 840L128.5 842.5L128.5 844L126 850L125.5 853L125.5 854.5L126.5 857L125.5 861.5L123.5 862.5L119.5 864L117 863L112 862L109 860.5L104.5 859.5L103 858.5L99.5 855L99 854L98.5 852.5L100.5 850.5L101.5 850.5L105 850.5L107.5 850L109 851L109.5 853.5L109 855L108 855.5L108.5 856L110.5 855.5L111.5 850L117.5 847.5L120 845.5L122 843.5L122 842.5L122.5 841.5L121 841L118 840L108.5 845L104 846.5L101 848L97.5 850.5L97 851L96.5 853L96 855L92.5 854L87.5 851L86.5 850L87.5 849L89 847.5L89 843.5L89.5 842L90.5 841L92.5 840L93.5 839.5L94.5 840L94.5 841L98 841L104 837.5L106.5 837.5L110 838L114 837.5L115 837.5L115.5 836.5L112.5 835.5L110 835L102 834.5L100.5 835L98 837L97.5 836.5L97 835.5L94 835L93 835L91.5 836L92 837.5L91 839L89 840.5L87 842.5L87 844.5L87 845.5L86.5 846L85 846.5L81 846L79 844L78 843L75.5 841.5L81 839.5L83 838.5L84.5 836.5L86 835L85 834L84 834L84 835.5L83 837L80.5 836.5L76.5 838.5L74 837.5L70 838.5L68.5 837.5L68 836L68.5 834.5L68 832L67 831.5L65.5 832L65 830.5L64 828L63.5 827L63 826L63.5 826L65 826L66 827L68 827L71.5 828.5L73.5 828L74 828L74.5 826.5L74.5 825L75 825L77.5 827L79 826.5L81.5 827L82.5 827L85 826.5L88.5 824.5L90.5 822.5L91.5 822.5L92.5 822.5L93.5 823.5L93.5 824.5L94 825.5L95 826.5L95.5 828L95.5 829L93.5 830.5L93 831L93.5 832L94.5 831.5L95.5 830.5L96.5 829.5L96.5 829L96.5 828L96.5 827L95 824.5L94.5 823.5L94.5 822.5L96.5 821L97 820.5L97 818.5L96 817.5L92 814.5L85 811.5L84.5 812L83.5 812.5L84.5 813L85.5 813L91.5 815.5L93 816.5L94 817L95.5 818L95 819.5L89 820.5L84 823.5L80 825L77.5 824.5L76.5 822.5L75 820.5L73 819L72 819.5L71.5 819L70.5 818.5L69 819L65.5 817.5L65 816.5L67 814.5L70 815.5L70.5 809L69.5 808L66 806.5L64.5 806.5L62.5 806.5L60.5 805.5L59 805.5L57.5 805L55.5 804L53 803.5L50 799.5L48.5 797.5L48 795.5L52.5 795.5L55.5 795L56.5 794L55.5 792L54 791L55 789.5L56.5 788.5L58 789L61.5 791L62.5 792.5L65 797.5L65.5 798L66 798L71.5 801L72 801L72 798.5L73.5 795.5L75 794.5L76 794.5L76 794L74.5 793L75 791.5L74.5 791L73.5 792.5L70.5 797.5L69 798.5L66.5 796L65.5 794.5L65 794L65 791L69.5 791.5L68 791L62.5 789L61.5 788.5L60.5 788L59 786.5L56.5 785L60.5 782L62 780L68 781L69.5 780.5L68.5 779L67 779.5L65.5 778.5L62.5 776L62.5 774.5L63 772L64 771.5L66.5 771L69.5 772L70.5 772.5L71.5 772.5L70.5 770.5L68.5 770L67 768.5L67 767L67.5 766L68 764.5L68.5 762.5L68.5 761L69 760.5L69.5 760.5L70 759.5L68 760L67.5 761.5L67 763.5L66 764.5L65.5 766L65 768L64.5 770L63 769L62 768.5L61.5 768L62 767L61.5 760.5L61.5 755L62 750.5L64 749L65 748.5L66 748.5L67.5 748.5L68.5 748L65.5 747L63.5 747.5L62 748.5L59.5 748L59 745.5L57.5 743.5L57.5 741.5L57.5 738L61 738L64 739L71.5 738.5L77.5 742L80 741.5L80 741L78 740L76.5 738.5L76 737.5L75.5 736.5L75.5 735.5L74 730.5L73.5 730.5L72.5 732L71.5 735L69.5 736.5L67 737L64 737L62 736.5L61.5 735.5L61.5 734L60.5 733.5L58 733L57 732.5L56 731.5L57.5 729.5L58.5 728.5L59.5 729L61 729.5L62.5 730.5L64 731L65.5 730L66 729L65 728.5L64 728.5L62.5 728L59.5 725.5L61 723.5L64.5 721L65.5 720.5L64.5 718L65.5 716L64.5 714L62.5 712L60 711.5L59.5 712L59.5 713L59.5 713.5L59.5 714L59 714L55.5 713.5L53 712L49.5 711L49 710L48.5 708.5L50 706L49.5 706L47 708L43.5 709L40.5 709L39.5 710L39 710.5L39.5 711L41 711L42.5 713.5L42 714.5L41.5 715L40 715L37.5 713.5L36 711.5L36 710L37 708L41.5 705.5L42.5 704L45 703L48 700L51 698.5L49.5 697L48 695L48.5 692.5L54 691L56.5 691.5L60 691.5L61.5 691L63 691L65.5 690L66.5 689L67 688L67 687.5L66.5 686.5L66 684L66.5 683.5L68 682.5L69.5 682L70 682.5L72 683L71.5 684.5L71 686L69.5 691.5L68.5 693L67.5 694L68 696L67 698L62 699.5L61 699.5L61.5 700.5L64.5 700L67 700L69 698.5L70 696L71 691.5L72 691L73.5 691L74.5 692L74 694.5L74 696.5L72 703L70 705.5L69.5 706.5L69.5 707L71.5 707L73 705.5L74 704L75 701.5L75 699.5L75 698.5L75.5 694.5L76.5 693L76 690L75 689L73 688.5L72.5 687L73.5 684L77 684L80.5 682L82.5 681L83.5 681L88 683L88.5 683.5L88.5 682.5L88 682L86 681.5L83 679L79 678.5L80 676L80.5 673L82.5 673L86 672L92.5 668L93.5 665L94 661.5L90.5 660.5L87.5 658.5L85 657L82.5 656L83 653.5L83 650L86 649L87.5 644.5L85.5 640.5L86 637.5L88.5 635.5L89 633.5L90 632L92 631.5L92 630.5L92 628.5L90.5 626.5L90.5 623.5L92 620L94 620.5L94.5 620L93 618L91.5 615.5L92 615L93 614L94.5 613.5L96 615L98 618.5L98.5 617.5L97.5 613.5L97 609L94.5 609.5L92.5 609L91.5 608.5L91 607.5L91.5 606L92.5 605L94 604L97 603.5L99.5 602L100.5 598.5L99.5 599L98.5 601.5L96 602.5L95 602.5L93.5 602L91 599.5L89.5 599L88.5 599L87 599.5L84 604L83 604.5L77.5 605L75.5 604.5L73.5 604L74 602.5L74.5 601.5L75.5 601L75.5 600.5L74 600L72 599L71.5 597.5L71 594.5L69 590.5L69 587.5L70 585L72.5 576.5L73.5 572L75 568L75 565.5L78.5 563.5L79.5 562L83 554L83 550L78.5 537L77.5 534.5L77.5 531.5L78.5 526.5L78.5 524.5L77.5 521.5L75 517L75 515L76 512.5L75 509.5L75.5 507.5L76 506L80.5 507L82.5 506.5L83.5 505.5L84 503.5L84.5 499.5L85 498L85 495.5L87.5 494.5L88 492L90 489L91.5 480L93.5 478L95.5 475.5L94.5 472L96 470L97 469L98 466.5L99 464.5L102 461.5L103 457.5L105.5 451L106 447L106.5 444L106.5 441.5L108 438L109 435.5L109.5 434L112.5 430.5L113.5 427.5L112 425.5L112 422.5L111 418.5L113.5 417L114 416L117 409L116.5 406.5L117.5 403.5L115.5 399.5L115.5 391L114.5 384L113 377L113 373.5L112 368.5L112 365.5L112.5 359L117.5 355L118.5 350.5L119.5 344.5L119 340L118.5 338L116 335L115.5 329L116 327.5L118 326L119.5 323.5L120 320L122 317.5L122.5 310.5L123.5 305.5L124.5 303.5L126.5 301L126.5 300.5L127 298.5L127 294.5L127 292L129 287L129 284.5L131 279L131 275.5L132 273.5L131.5 271.5L132 266.5L131 263.5L130.5 262L132 256.5L133.5 255.5L135 253L135.5 250.5L136 248.5L133.5 240.5L133.5 237.5L134 230.5L134.5 226.5L134.5 223L134.5 221L135 219L136.5 216L137 214.5L136.5 213.5L134.5 212.5L133 210L133 207.5L133.5 206L133.5 203.5L135.5 203L137 201.5L138 199L139.5 192.5L140 185L140.5 180L141.5 178L142 173L142.5 170L142.5 167L142.5 164.5L140.5 153.5L140.5 149L141.5 143L141.5 133.5L141.5 131.5L140.5 129.5L140.5 127L139 122L138 112.5L138 108L137.5 103.5L136.5 102.5ZM73 638L71.5 638.5L70 638.5L68.5 638.5L66.5 638.5L64 637.5L62 636.5L61 635.5L61.5 634.5L63 632.5L64.5 628L65.5 622L65 619.5L65 618.5L65.5 617.5L65.5 616L65.5 615L65.5 614L67 611.5L67.5 610.5L67.5 609.5L68 607L68 606L67.5 605.5L68 605L73.5 606.5L77.5 607L77.5 609L78.5 610.5L79 613L79.5 613.5L79 615L77.5 616L77.5 617.5L78.5 619.5L77 620L75.5 620L75 620.5L74 621L72.5 622L73 622.5L74.5 624.5L76.5 625.5L78 627.5L79 629.5L78.5 630.5L77.5 632.5L75 633.5L73.5 634L73.5 637L73 638ZM73.5 660.5L72.5 661.5L71 661.5L69 662.5L68.5 663.5L68.5 665L70 666L71 668L72 670L72.5 672.5L72.5 673L72.5 674.5L73.5 676L74 677L73.5 678L73 679.5L71.5 679.5L71.5 680.5L71.5 681L68.5 681L66.5 680.5L67 678L65 676.5L63.5 675L62 671.5L60.5 670.5L59 668L57 666L59.5 664.5L59 662.5L60.5 661.5L63 660.5L64.5 661.5L66 661L66.5 660.5L66.5 658L67 656L68.5 655L70.5 655L71 656L72 657L74 658L74 659L73.5 660.5ZM87.5 669L83 670.5L81 670L80 668.5L79.5 667.5L79 666L80 665L81.5 663.5L82 662.5L82.5 661.5L82.5 660.5L82.5 659.5L83.5 659.5L87 660.5L90.5 662L91.5 663L92 664L90.5 666L89.5 667.5L87.5 669ZM49 671L48.5 671.5L48 671.5L47.5 671L47 669.5L47.5 669L48 669L48.5 670L49 671ZM56 643.5L53 644L52.5 643.5L52.5 643L53 642.5L54.5 642L55.5 642.5L56 643L56 643.5ZM75.5 669.5L75 670L74.5 670L74 669L73.5 668.5L72.5 667L72 666L72 665.5L72.5 664L74 664L74.5 664L75.5 665L75.5 666.5L76 668.5L75.5 669.5ZM72 648.5L72.5 649.5L71.5 649.5L70.5 649.5L69.5 650.5L66.5 649.5L66 649.5L66 648.5L69 648L71.5 647.5L72 648.5ZM62.5 688.5L61.5 689.5L59.5 690L58 689L55.5 689.5L55.5 688L56.5 686.5L58 685L59 682.5L59 679.5L60 679L60.5 678L62.5 677.5L63 679.5L62.5 683.5L64 686L64 686.5L64 687.5L62.5 688.5Z"/><path class="map__land map__land--other" d="M203.5 -317L208 -312L212 -308.5L213.5 -307L214 -307L216.5 -307L219 -307.5L220 -308L221.5 -309L223.5 -311L225.5 -311.5L226 -312L226.5 -311.5L228 -310.5L229 -309L228 -306.5L228.5 -305.5L230 -305.5L231 -307.5L232 -309.5L234 -310.5L235.5 -312.5L237 -314.5L238.5 -315.5L240.5 -317L242.5 -317.5L244 -317.5L245 -318.5L246.5 -320L248 -321.5L248.5 -322L250 -321.5L252 -322L254 -323.5L255.5 -325.5L256.5 -328.5L257 -331.5L257.5 -332L258 -332.5L259 -333L260.5 -333L263.5 -334.5L266 -336L268 -336.5L268.5 -337L269 -338.5L269.5 -341L269.5 -342.5L265.5 -343L263 -343L259 -343.5L257.5 -344L257 -344.5L257 -345L257 -346L257.5 -348L257 -350.5L255 -355L253.5 -359.5L253.5 -362.5L253.5 -365.5L253.5 -367.5L252.5 -369L247 -374.5L245 -376.5L244.5 -378.5L242.5 -381.5L243 -382.5L244 -382.5L245 -381.5L246 -380L247 -379.5L248 -379.5L253 -379.5L254 -379L255 -378.5L255.5 -378L256.5 -376L257.5 -375L259.5 -375L262.5 -375L264.5 -375L265.5 -374.5L266.5 -374L269.5 -375L270.5 -375L271 -375L274 -371L276 -369.5L277 -367.5L279.5 -367.5L281 -369.5L281.5 -375L282 -377L283 -377.5L284 -377.5L285.5 -378L286.5 -379.5L288 -380L292.5 -378.5L294 -379L299 -380.5L304 -382.5L305.5 -385L307.5 -385.5L309 -387.5L310.5 -387.5L312.5 -387L314 -387.5L314.5 -388L315 -388.5L316.5 -391L317.5 -392L319.5 -393L320.5 -394L321.5 -395.5L322 -397L322 -398L321.5 -399.5L320.5 -401.5L320 -402L319.5 -402L321 -402.5L322.5 -402L324.5 -402L325.5 -402.5L327 -402L329 -403.5L330 -403L331 -403L331.5 -402L332 -401L333.5 -399.5L333.5 -397.5L333 -396L333 -394L333 -392.5L332 -390.5L331 -389L331 -388.5L330.5 -388L331.5 -387.5L332.5 -387L334 -387L335 -386.5L336.5 -386.5L338.5 -385.5L339 -384.5L339 -384L338.5 -382.5L338.5 -381.5L339 -380.5L339.5 -380L340.5 -377L341.5 -376L342 -375.5L342 -375L341.5 -374L341 -372.5L339.5 -371L339.5 -370L338.5 -369.5L336 -367.5L336.5 -365L336.5 -363.5L336.5 -362.5L336 -361L334.5 -357L334 -355L333.5 -350L333.5 -348.5L334 -346L335.5 -341.5L336.5 -340.5L338 -339.5L338.5 -336L338 -333L338 -331.5L338.5 -331L339 -330.5L339.5 -330L340 -329L340 -328L341 -327.5L342 -327L343.5 -325.5L345 -323.5L346 -323L346.5 -322L348 -320L350.5 -319.5L353 -318.5L354 -317.5L355 -316.5L355.5 -316.5L356.5 -316.5L357.5 -317.5L358.5 -318L360 -318L361.5 -318.5L362 -319L362 -319.5L361.5 -321.5L362.5 -322L364 -322.5L364 -323.5L364.5 -324L365 -324.5L365.5 -325L366 -324.5L367 -324L368 -324L368.5 -323L369.5 -323L370.5 -323.5L371 -323.5L371.5 -324.5L371.5 -326L372.5 -326L373.5 -326.5L375 -327L377 -327.5L379 -327L380 -327.5L380.5 -328.5L382.5 -331.5L383 -332.5L384 -333L385 -332.5L386.5 -333L388 -334L388.5 -333.5L389.5 -332L390 -332L391 -332L393.5 -331L394.5 -331.5L396 -331.5L397.5 -332L398.5 -331.5L399 -332L400 -332.5L400.5 -332L402 -332L405 -331L409 -330L410 -330.5L410.5 -331L410.5 -333L410.5 -334.5L410 -335.5L409 -337L407.5 -338.5L406.5 -339L406.5 -340L407.5 -341L408.5 -341.5L408.5 -342L409 -344L409.5 -344.5L410 -344.5L410.5 -344.5L411 -344L414 -342.5L415.5 -342.5L421 -343L421.5 -344L422.5 -344.5L424.5 -345.5L425 -345.5L426 -345L426.5 -345.5L428 -346.5L428.5 -346.5L428.5 -345.5L429.5 -344L430.5 -343L431 -343L432.5 -343.5L433.5 -343L433.5 -342L434 -341.5L434.5 -340.5L435.5 -340.5L436.5 -340L437 -339L438.5 -338L441.5 -337L442.5 -337L444 -336.5L444.5 -336L445.5 -337L448 -338.5L449.5 -339.5L450 -340.5L451 -341L451.5 -341L452 -340L453 -340L455 -339L456 -339L457.5 -339.5L459 -340.5L459.5 -341L460.5 -340L461 -338.5L461.5 -338L462.5 -338L464.5 -338L465.5 -337.5L466.5 -337.5L467.5 -338L468.5 -339.5L470 -340.5L471.5 -341.5L472.5 -342.5L473.5 -345L474 -346L474.5 -347.5L476 -352L477 -353L477.5 -354.5L478 -356L478 -357.5L478.5 -359L479.5 -360L480.5 -361L481.5 -363L482.5 -364.5L485 -369L485 -370L486 -370.5L486 -371.5L487 -373L488 -373.5L488.5 -375L489 -376.5L491 -377.5L491.5 -377.5L493 -381.5L493.5 -383L495 -383L497.5 -381L499.5 -378.5L502.5 -369.5L502.5 -361L504 -356.5L507 -347.5L507 -346L507.5 -344L508.5 -341.5L510 -338L510 -337.5L509 -336.5L510 -336.5L511 -336L512 -333.5L512.5 -332L514 -330L517 -329L519 -329L521.5 -328L523.5 -326.5L525 -321L524.5 -318L524.5 -315.5L524 -315L522 -313.5L521.5 -312.5L517 -308.5L516 -307L514 -304.5L511.5 -299.5L508.5 -295.5L507 -294.5L505.5 -294L504.5 -293.5L502 -290L498.5 -289L498 -287L496 -282.5L494.5 -280L493 -279L490.5 -274.5L490 -272.5L490 -269L488 -267L486.5 -265.5L486 -262.5L485 -261.5L484.5 -260.5L480.5 -261.5L474.5 -258.5L472 -257.5L479 -257.5L481 -255.5L486 -256.5L491.5 -261L493.5 -261.5L498 -264.5L500 -266.5L503 -268.5L504 -269.5L505.5 -270.5L506.5 -269.5L507 -268.5L505.5 -267L505.5 -266L506.5 -264.5L507 -262.5L507 -261L507.5 -259L510 -255.5L510 -254.5L509.5 -253L510.5 -252L511.5 -251L515 -247.5L517.5 -249.5L519.5 -250L520.5 -251L522.5 -251.5L524.5 -250.5L528 -249.5L530.5 -250.5L535.5 -253.5L534 -248.5L533 -243.5L532 -242L531 -236.5L530 -235.5L529.5 -234L530.5 -234.5L531.5 -235L533 -237L534 -240.5L537.5 -249.5L538.5 -250.5L541.5 -251.5L547 -259L549 -259L550.5 -257L551.5 -256L552 -258L554 -259L552 -260L551.5 -261L551.5 -262.5L553 -264.5L552 -266L554.5 -268.5L554.5 -270L555.5 -271.5L556.5 -273L558 -273.5L558.5 -275L559 -275.5L560 -275.5L561 -274L562.5 -276L564 -276.5L564.5 -276L565.5 -275.5L566.5 -275L567 -275.5L569 -276.5L570.5 -274.5L571.5 -274.5L571 -275.5L570.5 -276L571 -277L572 -277.5L574.5 -277L575.5 -276L577 -274.5L579 -274.5L580.5 -275L581.5 -274L583 -274L583.5 -273L586 -271L586.5 -270L588.5 -269.5L590.5 -268.5L592.5 -268.5L594 -268.5L594 -267L595.5 -266.5L597.5 -267L599 -265.5L602.5 -264L605 -262L606.5 -262L608.5 -261.5L610.5 -257L611 -254L612 -254.5L612.5 -256L614 -258.5L616 -259.5L616.5 -258.5L619 -256.5L620.5 -255L621 -254L622.5 -253.5L621.5 -252L622.5 -252.5L624 -253.5L625 -251.5L626 -249L626 -246.5L625 -245.5L624.5 -244.5L623.5 -243L623 -242.5L622 -242L623 -241L623.5 -240L625 -243L626.5 -244L628 -244.5L629 -242L629 -240L626.5 -239L626.5 -237.5L625.5 -236.5L625 -235.5L624.5 -233.5L624 -231.5L622.5 -223.5L622.5 -222L624.5 -223.5L628 -227.5L629 -232L630.5 -236.5L632 -238L633 -238L634 -237.5L634 -236L634 -235L632.5 -233L632 -231.5L632.5 -230.5L636 -234L637.5 -235.5L638.5 -235L641.5 -237L646.5 -237L647 -239L648 -240L650.5 -239.5L656.5 -238L658.5 -236.5L661 -235L663 -233.5L669.5 -231L674 -230.5L676.5 -232L679 -230.5L681 -229L684 -228L687 -228L689.5 -229L695 -229L703 -231L707.5 -230.5L712.5 -229.5L716 -226.5L719 -225L721 -223.5L724 -222L730.5 -218L732.5 -215.5L736.5 -212.5L740.5 -211L743 -207.5L744.5 -206L748.5 -200.5L753.5 -196.5L757 -192.5L763 -189.5L765.5 -185.5L769.5 -185L771 -184.5L773.5 -182.5L776.5 -181.5L780 -182L784.5 -181.5L788 -182.5L796 -181L797.5 -180L799 -178L802 -171.5L804 -164L804.5 -158L806.5 -153.5L808 -145.5L808.5 -142.5L809 -140.5L809.5 -140L810 -134.5L810 -132.5L809 -129.5L809 -128L809 -127L809 -126L808.5 -124.5L809.5 -122L809.5 -120L808.5 -117.5L807 -110.5L803.5 -99.5L800 -93L795 -86.5L792 -83L790.5 -82.5L789.5 -83L790.5 -81.5L789.5 -79.5L786.5 -75L783.5 -71.5L780 -66L779.5 -66L775.5 -64L773 -62L770 -59L767 -54L766 -53L765 -53.5L765 -51L762.5 -47L762 -46.5L762 -47.5L762.5 -48.5L762.5 -49.5L762.5 -50.5L762 -49.5L760.5 -46.5L761 -44.5L759.5 -41L755.5 -31.5L750.5 -23.5L749.5 -21L745 -15.5L742 -13L741 -13L740 -13L739.5 -17L737.5 -20L736.5 -20L735.5 -17.5L735 -17L733.5 -16.5L735 -15.5L735 -14L734 -11.5L734 -9L731.5 -6.5L730 -4.5L729.5 -2L729 0.5L730 0L730.5 0.5L731 1L730.5 2L730 4L730 9L730 10L730.5 11.5L731.5 9.5L732 10L729.5 23.5L730.5 29.5L731 36L732 43L733 49L731.5 56L729.5 63L728.5 68.5L727.5 74.5L727 77.5L726.5 80.5L727.5 87.5L728 88.5L725.5 92L723 93.5L721.5 95L718.5 100.5L717 108.5L716.5 113L717.5 122.5L717 126L716 128.5L715 130.5L712 132.5L709 137L708 142.5L706 144L706 147L704.5 150L700.5 154.5L698 156L697 157.5L696 160L694 164.5L692 170L692.5 172L692.5 172.5L693 179L693 180.5L690.5 182.5L682 186L679.5 187.5L674.5 193L674 194.5L674.5 196.5L675 197.5L674 199L673 201L671.5 201L663 201L658.5 201.5L656 201.5L655 201L653.5 200L653 199L654 197L653.5 196L652 196.5L651 196.5L650.5 197.5L650.5 198.5L651 199.5L651.5 201L651 202L648 202L645 203L641 203.5L638 204.5L636.5 203.5L638 203L640 203L642.5 202.5L642 201.5L638.5 200L635 201L633.5 202.5L629 202L624 203.5L623.5 204.5L623.5 206.5L624.5 207L625.5 208L624.5 209L623.5 209.5L618 210.5L613 214.5L611 215L609 217L609 218.5L608.5 219.5L607 219.5L604.5 218.5L601.5 218.5L599 219L586.5 226L582 228.5L577 234L568 240.5L563.5 244L563 245L562 245L560.5 246L561.5 246.5L562 246.5L562 248.5L560 250L556.5 254L556 253.5L557 251.5L555.5 251.5L553 251L552 251.5L552.5 253.5L551.5 254.5L550 254.5L548.5 254.5L546.5 253L547.5 255.5L551 256L552.5 257L553 258L550 262.5L548 263L547.5 263.5L549 263.5L549.5 265L548.5 270.5L547.5 271.5L547 271.5L546.5 272L547 274L548 275L548 277.5L547.5 279.5L547.5 281.5L549 285L549 289L549.5 290.5L550 292L549 293.5L549.5 296L548.5 300L549 305.5L548.5 311L548 313.5L547.5 316L545.5 319L545.5 321.5L541 324.5L536.5 328L532 332.5L527.5 338.5L522 348L517 361.5L511 371.5L508.5 375L505 379L501 384L495 388.5L488.5 393L486.5 395L484 397.5L483.5 396.5L484 394.5L483.5 393L483.5 391.5L485 391L487 392L488 391.5L488.5 390.5L491 390L495.5 385.5L498.5 384L500.5 381L500.5 379.5L500.5 376L501.5 375.5L504 375.5L504.5 374.5L504.5 373.5L505 371.5L508 369.5L509.5 367L509 361.5L509.5 361L511 362L511.5 361.5L512.5 359L512 357.5L510.5 357L505 360L503 360L503 357.5L500.5 356.5L499.5 354.5L499 353.5L498 353L498 355L498.5 357.5L500.5 360L500 361L499 362L498.5 365L498.5 368L497.5 367L497 366.5L496.5 370.5L495 371.5L494.5 373L495 374.5L494 376L490 379L486 381L485.5 382L485 384L484.5 386.5L482.5 388.5L481 392.5L481 394.5L481.5 397L482.5 398.5L481 399.5L479.5 402L478.5 404.5L475 414L472.5 419.5L470.5 422L467.5 425L459 432.5L458.5 432L457 431.5L456 431L456 430.5L455.5 430L456 427L456 420L456 419L456.5 418L458.5 416.5L460 415L462 412.5L463.5 411L463 409.5L461.5 408.5L459 407.5L456.5 406L454.5 403.5L453.5 401.5L452.5 399L451.5 397L451.5 396L450.5 396L449.5 395L448.5 394L447 393.5L445 393L443 392L440 389.5L438 387L437 385L436 384L430 382L427.5 379.5L426.5 380.5L425 379.5L423 378.5L422.5 377.5L422 376.5L421.5 375.5L421 374.5L419.5 373L417.5 371L416.5 370.5L416 370.5L415.5 371L415.5 372L414.5 372.5L413.5 373.5L412.5 374.5L411.5 375L410 375.5L409 375.5L409 375L409 373.5L409 370L408.5 369L407 367.5L406 365.5L401.5 361.5L395.5 356L393.5 354.5L391.5 354.5L389.5 354.5L388 355.5L386.5 358L386 358L383 358L379.5 357.5L378.5 356L379.5 355L382.5 353L384 351L384.5 349L386 347.5L388.5 346L391.5 343.5L394.5 339.5L396.5 337L397 335L398.5 333.5L400 332.5L401.5 330.5L403 327.5L405 325L407 323.5L408.5 321.5L409 320.5L409.5 320L410.5 319.5L411 319L411 318L411 317L412 317L413 317L414 317.5L415 317.5L415.5 316.5L415 316L414 315L414.5 313.5L417 312L419 311L420.5 310L421.5 308.5L423.5 307L426 306.5L427 306L426.5 305L427.5 304.5L429 304L429.5 303L430 302L430.5 300.5L431 299.5L432.5 299.5L433.5 299.5L434.5 299L435.5 298L436.5 297.5L438 297.5L438.5 297.5L441 297L442 296L443 294L444 293.5L445 294L446 293L448 291.5L448.5 291.5L450 290.5L451.5 287.5L452.5 285.5L452 283.5L451.5 282.5L452 280.5L452.5 276L452.5 274L453 272.5L453 271.5L451.5 268L450.5 265.5L449.5 261L449 259.5L448 259L446.5 257.5L445.5 257.5L444.5 256.5L444 256L443 256.5L442 257L440.5 257.5L439.5 257.5L438.5 258.5L437.5 258L437 257.5L435.5 257.5L435.5 254.5L438 249.5L438.5 247.5L438.5 246.5L439 242L441 235L441.5 230L441 228L441 226.5L442 225L442.5 224.5L440 223L438.5 221.5L437 220.5L435 219.5L434 220L433.5 220.5L431.5 221L429.5 222.5L428.5 223L426.5 223.5L424.5 224L422.5 223.5L421 223.5L420 222.5L419.5 220.5L419.5 219L419.5 217L418 215.5L418 214.5L418 213.5L418 212L418 211L418 210L417.5 209L417.5 207.5L417.5 205.5L416.5 204L416.5 202.5L416.5 201L415.5 199.5L415.5 198L416 196.5L416.5 195L416 194L414.5 193.5L414 191.5L414 189.5L413 188.5L412 187.5L411 187.5L409 186.5L408 187L405.5 186.5L404.5 186.5L404 185.5L402.5 184.5L401.5 182.5L400.5 182.5L399 183L398.5 183.5L398 184.5L397 185.5L396 185.5L394.5 186.5L393 186.5L391.5 186.5L389.5 186L387.5 185.5L385.5 185L384 185.5L382.5 185L381 185L379.5 184.5L378 183.5L376.5 183L375.5 183L374.5 184L373.5 183.5L372 183L371.5 181.5L371.5 181L372 180L372.5 179L372.5 177.5L372.5 176.5L372.5 175.5L373 174.5L372.5 173L372.5 172L372.5 171L372.5 170L373 168L373.5 167L373.5 166L373.5 165L374 163.5L374.5 162L374.5 159L374 157.5L373.5 157L373 156.5L373.5 156L373 155L373 154.5L373.5 154L373 152.5L372 152.5L371.5 152L371.5 150.5L371 149L371 148L371 147L370 146L369.5 145L369 144L368.5 143L368 141.5L369.5 141L370 140L371 139L372 138.5L373.5 138.5L374 137.5L370.5 134.5L369 132.5L370 130L372 125.5L373.5 121.5L375 118L375.5 117.5L376.5 117.5L376.5 115.5L376.5 114.5L375.5 114.5L376.5 110.5L378 105L379.5 101L379.5 100.5L380.5 100L381 99.5L379.5 99L379 97.5L377.5 94L375.5 88L375.5 86L374.5 84.5L373 85L371.5 84.5L367.5 81.5L364.5 79.5L364 78.5L363.5 75.5L362.5 71.5L362 67L362.5 66L364.5 62.5L364.5 61L365 59.5L365 58L364 58L363.5 58.5L362 59L361 59L353 59L344 58.5L336.5 58L330 58L330 55L329.5 50L329.5 46.5L329 41L326 37.5L323.5 34L322.5 33L326 32.5L328.5 32.5L328 22.5L327 21.5L326.5 18.5L326 16.5L324.5 15L324.5 13L324.5 12L325.5 11.5L326 9.5L325.5 8L324.5 6.5L324 5L322 4L319.5 2L316 0L313 -1.5L312 -1.5L306.5 -1L305 -0.5L303.5 -1L299.5 -1L298 -2L296.5 -3.5L294 -7L293.5 -8.5L292.5 -9.5L290.5 -9L289 -9.5L285.5 -11L282.5 -12L281 -12L280 -13L277.5 -15.5L276.5 -16.5L276 -17.5L275.5 -19L274.5 -19.5L273 -19.5L272 -18.5L270 -19L268 -20.5L266.5 -22L265.5 -22.5L263.5 -23.5L262 -23.5L259 -22L256.5 -22.5L253 -23L250 -24L248.5 -26.5L248 -28L246 -29L244.5 -30.5L243 -32.5L242 -33L240.5 -33.5L239 -34L239 -35.5L238.5 -37L238 -37L237 -39L236.5 -39.5L236 -39L236 -38.5L235.5 -39L235 -40L235.5 -41L235 -42.5L233.5 -44L233 -45.5L232.5 -47L232.5 -48.5L232 -49L231.5 -49.5L231.5 -51L232 -52.5L232.5 -54.5L232.5 -57.5L231 -61L230.5 -64L230.5 -65.5L230.5 -67L231.5 -68L233 -71L233 -73.5L232.5 -76L232.5 -78L233 -79L232.5 -81L231.5 -82.5L230.5 -82.5L229.5 -82L228.5 -81L227 -80.5L225.5 -81.5L221.5 -81L215 -80L212.5 -79L211 -79L209 -78.5L206 -77L199 -70.5L197.5 -70L195.5 -69.5L194.5 -69L193 -68L190 -65.5L188.5 -63.5L187.5 -62L186 -61.5L185 -62L182 -62L180.5 -61.5L179 -59.5L177 -56.5L176 -55.5L174.5 -54.5L172.5 -54L170.5 -52.5L169 -52.5L168.5 -52.5L167.5 -53L167 -54L166 -55L163 -55L159 -56L154.5 -56L152 -56L150.5 -56L147.5 -56.5L145 -56.5L143 -55.5L140 -54L139 -53.5L137.5 -53.5L137 -53.5L135.5 -54.5L134 -56L133 -55.5L132 -55L132 -58.5L132 -64L132 -68.5L132 -72.5L132 -77L132 -80L133 -81.5L133.5 -82.5L133 -84.5L133 -86L133.5 -87.5L134 -88.5L132.5 -88L132 -87.5L131.5 -87L130 -85.5L129 -84.5L127.5 -83.5L126 -81.5L124.5 -80.5L123 -79.5L121 -77L119 -76.5L114 -76.5L108.5 -76.5L103.5 -76.5L103 -76.5L103 -78.5L103 -80L101.5 -81.5L101.5 -83L101 -84.5L100.5 -86L99 -87L97.5 -87.5L95 -88L91 -89L87 -89L83.5 -89L86 -92L88 -95.5L88 -98L86 -100.5L85 -102L83.5 -104L81.5 -105.5L80.5 -107L81 -108.5L80.5 -109L80 -109.5L79 -110L78 -111L77 -112L77 -113L76.5 -114L76 -115L76 -116L75.5 -117.5L74.5 -119L74 -119.5L73 -120.5L73 -121.5L73.5 -122L74 -123L74 -124L73 -124.5L72 -125L70.5 -126.5L69.5 -127.5L69 -128L68.5 -129L69 -129L69.5 -130L69.5 -131L69 -132L69 -132.5L70 -133L70.5 -132.5L71.5 -133L72 -133.5L73.5 -133.5L74 -134L74 -135L73 -137L72.5 -138L72 -139L73 -141.5L73 -142.5L74.5 -144.5L78 -147.5L81.5 -150L83 -150L84 -151L85 -152L85 -153.5L85 -155L84.5 -156.5L83.5 -159L83 -160L83.5 -161.5L84.5 -163.5L86 -166.5L88 -170L88 -171L88 -173L89 -177L89.5 -179.5L89 -180L89.5 -181L90.5 -181.5L93 -182L95 -183.5L97.5 -185.5L99.5 -188L101.5 -189L105 -191.5L106.5 -192.5L107.5 -193L109.5 -194L112.5 -194.5L115.5 -195L117 -195.5L119.5 -196L121 -196.5L122.5 -196.5L126 -197.5L127 -198.5L128 -200L129 -201.5L130.5 -201.5L132 -201.5L134 -201.5L136.5 -202L137.5 -201L138 -199.5L139.5 -198.5L140.5 -198.5L142 -199L143 -198L144 -198L145 -198.5L145 -200L145 -200.5L146 -205L147 -212.5L148 -219L149.5 -226L150.5 -233.5L151.5 -241L152.5 -247.5L153.5 -252.5L154 -256L155 -260.5L155 -264L155.5 -265L155.5 -266L154.5 -267.5L154.5 -268L155 -268.5L154.5 -269.5L154 -270L153.5 -270.5L153 -271L152.5 -272L152 -273L152 -273.5L151.5 -274.5L151.5 -275.5L152 -276L152 -277L152 -278L151.5 -279L151 -280L150.5 -280.5L149 -281L147.5 -282.5L145.5 -284L143.5 -286.5L143 -288L143 -291L143 -295L143 -300.5L143 -303L144.5 -303.5L145.5 -303.5L147 -303.5L148 -303.5L149 -304L149.5 -304.5L150.5 -305L151 -305L151.5 -305.5L152.5 -305.5L153 -306L154 -306.5L155 -305.5L155.5 -305L156.5 -304.5L157 -305L157.5 -304.5L158 -304L158.5 -304L159 -304L160 -304.5L160 -305L160 -305.5L160 -306L160 -307L160 -308L160 -309L159.5 -310L159 -311.5L158 -312.5L157 -313L156.5 -313.5L155.5 -313L155 -313L154 -313.5L153.5 -313.5L152.5 -313.5L151.5 -313.5L149.5 -313.5L149 -314L148 -314L147 -313.5L147 -319L147 -324L147 -327.5L148 -327.5L149 -328L151 -328L152 -328.5L153 -328.5L154 -328.5L155.5 -327.5L157 -327.5L161 -327.5L165 -327.5L169 -327.5L173.5 -327.5L177.5 -327.5L178.5 -327.5L178 -328.5L177 -330.5L177.5 -331.5L178 -332.5L178.5 -333.5L179.5 -332.5L180.5 -330.5L181.5 -329L182.5 -328.5L183.5 -328L184.5 -328.5L185.5 -329L187.5 -332L189.5 -334.5L190.5 -335L191.5 -336L192.5 -336L193.5 -336L194.5 -335.5L195 -334.5L197 -330L198.5 -327L199.5 -325.5L199.5 -320.5L199 -316.5L199.5 -316L203.5 -317Z"/><path class="map__land map__land--other" d="M153.5 84.5L153.5 83.5L153.5 82L152.5 80.5L151.5 80L151 79L151.5 78L153.5 76L155 75.5L155 74.5L156 73.5L158 70.5L159.5 68.5L160.5 67.5L162 66.5L162.5 66L162.5 64L162.5 62.5L163 61.5L164.5 60.5L166 59.5L166 59L165 58L162.5 57L160.5 57L159.5 56L159 55.5L155.5 46.5L155 44.5L155 43.5L157.5 39.5L158.5 38L160 36L159.5 35L157 31.5L156 30L156 28.5L156.5 26.5L158 25.5L158.5 23.5L158.5 22L159.5 21.5L160 20.5L161 19.5L162 18L163 17.5L163 15L163.5 14.5L165.5 13.5L165.5 13L165 11.5L164.5 9.5L163.5 9L162.5 4.5L161.5 2.5L162 1.5L163 0.5L163.5 -1.5L163.5 -4L163.5 -13L163.5 -14.5L164.5 -16L165.5 -17.5L166.5 -18L167.5 -19L167.5 -20.5L168.5 -21.5L169 -23L166.5 -28L164.5 -32L162.5 -36L160 -41L158 -44L156.5 -48L154.5 -51.5L152 -56L154.5 -56L159 -56L163 -55L166 -55L167 -54L167.5 -53L168.5 -52.5L169 -52.5L170.5 -52.5L172.5 -54L174.5 -54.5L176 -55.5L177 -56.5L179 -59.5L180.5 -61.5L182 -62L185 -62L186 -61.5L187.5 -62L188.5 -63.5L190 -65.5L193 -68L194.5 -69L195.5 -69.5L197.5 -70L199 -70.5L206 -77L209 -78.5L211 -79L212.5 -79L215 -80L221.5 -81L225.5 -81.5L227 -80.5L228.5 -81L229.5 -82L230.5 -82.5L231.5 -82.5L232.5 -81L233 -79L232.5 -78L232.5 -76L233 -73.5L233 -71L231.5 -68L230.5 -67L230.5 -65.5L230.5 -64L231 -61L232.5 -57.5L232.5 -54.5L232 -52.5L231.5 -51L231.5 -49.5L232 -49L232.5 -48.5L232.5 -47L233 -45.5L233.5 -44L235 -42.5L235.5 -41L235 -40L235.5 -39L236 -38.5L236 -39L236.5 -39.5L237 -39L238 -37L238.5 -37L239 -35.5L239 -34L240.5 -33.5L242 -33L243 -32.5L244.5 -30.5L246 -29L248 -28L248.5 -26.5L250 -24L253 -23L256.5 -22.5L259 -22L262 -23.5L263.5 -23.5L265.5 -22.5L266.5 -22L268 -20.5L270 -19L272 -18.5L273 -19.5L274.5 -19.5L275.5 -19L276 -17.5L276.5 -16.5L277.5 -15.5L280 -13L281 -12L282.5 -12L285.5 -11L289 -9.5L290.5 -9L292.5 -9.5L293.5 -8.5L294 -7L296.5 -3.5L298 -2L299.5 -1L303.5 -1L305 -0.5L306.5 -1L312 -1.5L313 -1.5L316 0L319.5 2L322 4L324 5L324.5 6.5L325.5 8L326 9.5L325.5 11.5L324.5 12L324.5 13L324.5 15L326 16.5L326.5 18.5L327 21.5L328 22.5L328.5 32.5L326 32.5L322.5 33L323.5 34L326 37.5L329 41L329.5 46.5L329.5 50L330 55L330 58L336.5 58L344 58.5L353 59L361 59L362 59L363.5 58.5L364 58L365 58L365 59.5L364.5 61L364.5 62.5L362.5 66L362 67L362.5 71.5L363.5 75.5L364 78.5L364.5 79.5L367.5 81.5L371.5 84.5L373 85L374.5 84.5L375.5 86L375.5 88L377.5 94L379 97.5L379.5 99L381 99.5L380.5 100L379.5 100.5L379.5 101L378 105L376.5 110.5L375.5 114.5L376.5 114.5L376.5 115.5L376.5 117.5L375.5 117.5L375 118L373.5 121.5L372 125.5L370 130L369 132.5L370.5 134.5L374 137.5L373.5 138.5L372 138.5L371 139L370 140L369.5 141L368 141.5L368.5 138L368 134.5L368 134L362.5 130.5L357.5 127L350.5 122.5L342 122.5L333.5 123L325 125L316.5 126.5L312.5 127.5L305 129.5L300 130.5L299 134L297 139L295.5 142L293.5 145.5L290.5 150L290.5 155.5L290.5 160.5L288.5 168L286.5 174.5L285 180.5L283.5 184.5L283.5 185.5L283 185.5L281.5 184L280 182L280 180.5L279.5 180.5L271.5 180.5L264 181L263 181.5L262 181.5L261 181L260.5 181L259.5 181.5L258 182.5L255 188.5L254 191L252.5 193.5L252 197.5L251.5 198.5L250.5 197L249.5 193L248.5 191L248 188.5L246.5 185.5L244.5 184.5L243.5 184.5L242 184L239 183L237.5 183L229.5 183L229 183L226 183L224 183L222.5 181L219 178L218 177L216.5 176.5L215.5 176.5L215.5 177L214.5 179.5L214 182L213 183L210.5 184L208 185L206.5 185.5L205.5 186.5L205.5 188L205 189.5L201 191.5L200.5 192.5L200 194.5L198 197.5L197.5 198.5L194 199L190 200L187.5 200L186 199.5L185.5 199L184.5 198.5L184 197.5L184 196.5L184.5 194L184.5 191.5L183 188L183 187L183 185L182.5 182L180.5 180.5L180 177.5L180 175.5L178.5 172.5L178.5 169L178.5 165.5L176 162L174 158L172 157.5L171.5 157L171.5 156L171.5 154.5L171.5 153.5L173 151.5L172.5 151L169 148.5L168 147.5L167.5 147L167.5 146L168.5 145L169 144.5L168 142.5L168.5 141L167.5 140.5L168 140L168.5 139.5L170.5 139L171.5 137L171.5 136L171 135L169 132.5L169 132L171 128.5L173 126L173.5 125.5L173 125L172.5 124.5L171.5 124L170.5 123L169 121.5L167.5 120L166 118.5L164.5 117L164 116L164 114.5L163.5 112.5L162.5 109L162.5 107L162 104.5L161.5 102.5L161.5 101L161 99.5L160.5 98L161 97L161.5 96.5L161.5 96L158 94.5L157 94L156.5 90L154 87L153.5 84.5Z"/><path class="map__land map__land--other" d="M378.5 356L378 357L378 358.5L376.5 360.5L374.5 363L373.5 365L374.5 367.5L375 370.5L374.5 372L373.5 372L373 373L374 374L374 376L373.5 378L372.5 380L370.5 382.5L370.5 384L371 385L371.5 386L371.5 387L371 388L370.5 390L369.5 391.5L368 392.5L367.5 393.5L368 394.5L368.5 396L368 397.5L368 399L369 400.5L369 402L367.5 405L367 407L368 415.5L367.5 416.5L366.5 418L365.5 418L364 418L363.5 419L362.5 422.5L361 430.5L361 432.5L362.5 435.5L363 437.5L363.5 439L364 442L363 443.5L362.5 443.5L361.5 444L362.5 447.5L363.5 449.5L366 452.5L375.5 457L380 459.5L384.5 463.5L387 467L387 470L383.5 474.5L383 478.5L384 481.5L385 484L388.5 487L391.5 488.5L395 488L395.5 489L396 490L396.5 496.5L396.5 499L395.5 501L388.5 511.5L382.5 518L380.5 521.5L380 525.5L378 527L368 533L352 538L339.5 540.5L336.5 541.5L316.5 544.5L312.5 545L307.5 544.5L303 545L298.5 544L294.5 543.5L292 541L289 540.5L288.5 542L290 544.5L289 548L290 550L291.5 550.5L293 551.5L294.5 553L292 553L293 554L294 555L294 557L293 562.5L291 564L290 564L289.5 565.5L288 570.5L287.5 574L288 576.5L291 581L290 584L288 585.5L280.5 589L277.5 590L272.5 591L265 591.5L262 591L255.5 588L250.5 586L246 584.5L241.5 584L242 583.5L242.5 582.5L241.5 582L240.5 582L237.5 583.5L236.5 585.5L236 586.5L236 590L236.5 593L238.5 600L238.5 604L237.5 608.5L239 611.5L240.5 613L244.5 614L246 615L247.5 615L248 615L248 615.5L247 617L247 618L250 618.5L252.5 618.5L256 617.5L256.5 617L256.5 615L253 614.5L253.5 614L256 613L260 612L261.5 611.5L263 612.5L263.5 613.5L265 615.5L265.5 618L265.5 621L265 624L264.5 625L263.5 626.5L257 628L255.5 627.5L253.5 625.5L253 623L251.5 621.5L248.5 620.5L245.5 620.5L242.5 623L239.5 623.5L238.5 625.5L246 628.5L249.5 629.5L250.5 629.5L251.5 630L250.5 631L249.5 632L244 633.5L242 635L239 637L235 642L234 643L233.5 644L233 647.5L234.5 653L233 655.5L234 658L233.5 660L232 662.5L226.5 666.5L225.5 669L227.5 671L227.5 672.5L227 673.5L224.5 673.5L216.5 673L213.5 674.5L210.5 676L210 677L209 677.5L203 678.5L202 679L196 686L193.5 690L190.5 694.5L189.5 696L189.5 698.5L190 701L190.5 702.5L191.5 704.5L193.5 707L205 716.5L207.5 717.5L220 718.5L222.5 720L224 722L225 724L224 728.5L223.5 730L222 731.5L219 733L215.5 734L216.5 735L218 734.5L221 734L222.5 734.5L223.5 736.5L221.5 737.5L221 738.5L219.5 739.5L212.5 745L208.5 747L205 749L200.5 751.5L198.5 752.5L196 755.5L192 758L188 764.5L188 766L188.5 766.5L186 777.5L185.5 779L183.5 780.5L179.5 782.5L177 783L174.5 781.5L173 780L171.5 778L169.5 775.5L169.5 776.5L170 778L169.5 779.5L165 780L163.5 781L168 780.5L171 781L172 781.5L173 782.5L174 784L173.5 785L171 785.5L168 786.5L164.5 789L162.5 791.5L161.5 793L160.5 797L160 799L158.5 801L156.5 802.5L156.5 803L158 802.5L159.5 802L160.5 804L162 808.5L162.5 811.5L162.5 812.5L162 814L159 814L156.5 814L154.5 814.5L155.5 815L157 815L159.5 816.5L162.5 816L164 816.5L164.5 817.5L169 824L172.5 828L174.5 830L173.5 831L173.5 830L171 829.5L168.5 829L164.5 828L159.5 826.5L154 826.5L149.5 825L145 823.5L135 823.5L126.5 823.5L117.5 823.5L111.5 823.5L108 823.5L107 823L107.5 821L106 819.5L104 818L101.5 817L100 815.5L98.5 813.5L99.5 812L100.5 808.5L100.5 807L99.5 806L99.5 804L99.5 803.5L100.5 803L101 800L100.5 797.5L100 795.5L99 794.5L97.5 794L96.5 793.5L94.5 794.5L91 794.5L90 794.5L88.5 795.5L86 797L84.5 796.5L84 795L83 794L82.5 792.5L82.5 791L81.5 788.5L80 785.5L78 783.5L78 781.5L77.5 779L78.5 776.5L78 774L76.5 772L77 769L78.5 768L79 766L85 765.5L84.5 763.5L85.5 761.5L87 759.5L88 759L90 758L92.5 757L94 756L95 755L95 753.5L95.5 752L95 749L95.5 748L97 747L99.5 745.5L101 743L100 740L98.5 738L96.5 737.5L96.5 735L97.5 733L98.5 731L100 728.5L100 727L101 726L104.5 724L105.5 721.5L107 721L108 720.5L108 719.5L107 718.5L107 717L107 715L107.5 713L109 712L111.5 710L112 709L112 707.5L111.5 704L111 702L110.5 701L109.5 699.5L108.5 698.5L110 697L112.5 696L113.5 694L112.5 692.5L111 691.5L110.5 689L111 686L112 685L115.5 684.5L116 683L118.5 680.5L118.5 678.5L117 677L115.5 675L114 673L110 672L105.5 671.5L105 669.5L105 668.5L107 669L110.5 668.5L113 668.5L114.5 668.5L116.5 668L118.5 669L120.5 668.5L121 665.5L122.5 664L122.5 662.5L121.5 661.5L119 661.5L110 660.5L109.5 659L109.5 657.5L110 655.5L110 654.5L111 653.5L112 652L112.5 650.5L112 649L110.5 647L111.5 646L111.5 644.5L111 643.5L109.5 642L108 640L108 638L110 637.5L111 637L111 636L110.5 634.5L108.5 634L105.5 633L104.5 632L103.5 630.5L104 626L104 623L103.5 621.5L104.5 620.5L105.5 619.5L105 617L104 615.5L104.5 614.5L105 613.5L106 612.5L106.5 612L107.5 613L109 612.5L111 611.5L111 610.5L111 608.5L109.5 604.5L108 602L108.5 601L109 600L108.5 596.5L108.5 594L108.5 588L109 585.5L107.5 583.5L107.5 581L108.5 579.5L109.5 577.5L110 576L111 575L112 574.5L112 573.5L111.5 573L110 571.5L110 570L110 569L111 568.5L112 568.5L113 567L113 565L113 564L112.5 563L112 560L111.5 558.5L112 558L113 557.5L114 558L115 558L115.5 557L115.5 556L115.5 555.5L116.5 553.5L117.5 551L117.5 549.5L117 544.5L117.5 543.5L118.5 542.5L120 541.5L121.5 541L123.5 540L126 539.5L127 538L128 536.5L128 535L127 534L126 533L125.5 530.5L125 527.5L125 524.5L123.5 521.5L122 518.5L122 515.5L122 514L123 511.5L122 510.5L121.5 508.5L122 507L123 504.5L123 503.5L122.5 500.5L121.5 499L122.5 497L123.5 495.5L124 494.5L124 493L124.5 492L126 491L127 489.5L128 489.5L129.5 489.5L130 489L130.5 488L130.5 487L132.5 485.5L133.5 484L135.5 483.5L136.5 482L136.5 480L136.5 478L137 476L136.5 472.5L136.5 470.5L135.5 469L136 467.5L135.5 466.5L134 466L133.5 464.5L134.5 464L135.5 463.5L137 462.5L138 457.5L138.5 456L139 454.5L139 453.5L139.5 452.5L140.5 450.5L141.5 448.5L142.5 447L143 445.5L143.5 444.5L144 444L145 443.5L146.5 443.5L147 442.5L147 441.5L147 439.5L146.5 436.5L146.5 432L146.5 429.5L147.5 426.5L148 425L148 424L147.5 422.5L146 422L145 422.5L144 422L142.5 421L142 419L142.5 417L143.5 415.5L144 414L143.5 413.5L142 412.5L141 408.5L141 405L140 404L139.5 401.5L138 400.5L137.5 399L137.5 397L137.5 396L138.5 395.5L139.5 394L139 393L138 392.5L137 392.5L135.5 391.5L134.5 388L133 386L133.5 382.5L133.5 380.5L134 378.5L134.5 377L135.5 376L136 376.5L137 376L137.5 375L138.5 374L138.5 373.5L138 372.5L137.5 371.5L138 370L139 366.5L140.5 363L141 361.5L141 360.5L141.5 360L142.5 360.5L145 360L146 358L146.5 356.5L147 356L147 354.5L145.5 354.5L145 354L145 352.5L145.5 349.5L145.5 347L144.5 342.5L143.5 337.5L144.5 336L146 334L147.5 333L148 331.5L149 326L149 323L150 321.5L150.5 318L153 315.5L154 313.5L155 313.5L155.5 313L156.5 311L158.5 308.5L160 307.5L160 306L161 304L162.5 300L163 297.5L164 296.5L165.5 293L166 291L167.5 290.5L168.5 290L170 291L171 291L172 289.5L174.5 289L175.5 288.5L176 287.5L176 285L175 283.5L173 281L171 277.5L171 276.5L171 275.5L171 274L172 272.5L174 269.5L174 268L172.5 261L172 259L170.5 255.5L171 254L172 250L172.5 248.5L174 248L174.5 247.5L175 247L174 246L173.5 245L173 243.5L172 243L171.5 241.5L171.5 239.5L172.5 237L173.5 236.5L174 235L175.5 234L176.5 233.5L177.5 232L181 230L184 229L190 226L194.5 224.5L194.5 223L195 222L197 215.5L199.5 207.5L201 202L197.5 198.5L198 197.5L200 194.5L200.5 192.5L201 191.5L205 189.5L205.5 188L205.5 186.5L206.5 185.5L208 185L210.5 184L213 183L214 182L214.5 179.5L215.5 177L215.5 176.5L216.5 176.5L218 177L219 178L222.5 181L224 183L226 183L229 183L229.5 183L237.5 183L239 183L242 184L243.5 184.5L244.5 184.5L246.5 185.5L248 188.5L248.5 191L249.5 193L250.5 197L251.5 198.5L252 197.5L252.5 193.5L254 191L255 188.5L258 182.5L259.5 181.5L260.5 181L261 181L262 181.5L263 181.5L264 181L271.5 180.5L279.5 180.5L280 180.5L280 182L281.5 184L283 185.5L283.5 185.5L284 186.5L284 187L285.5 188L288.5 190L291.5 194L294.5 199.5L297 203.5L299.5 206L301.5 208L303.5 209L305 210L305 210.5L307 212L310.5 214L313 216L314 218.5L317.5 220.5L324 223L328.5 224L331.5 224L335.5 225.5L341 229.5L344 232L345.5 233.5L349 235.5L357.5 240.5L361.5 241.5L363.5 242.5L364.5 244L365.5 244.5L366.5 244L368.5 244.5L372 246L374.5 248L378 252L379 253.5L379.5 255L379.5 256.5L378.5 258L376.5 259.5L376 260L376 260.5L375.5 262L374 264.5L373.5 265.5L373.5 266.5L372.5 267.5L369.5 269.5L369 270.5L369 271.5L368.5 272L368 273L367.5 274.5L367.5 276.5L367.5 279L367.5 280L367 280.5L366.5 281L366.5 282L366 283L365 283.5L365 284L365 285L364.5 285.5L363 286L362 287L362 288.5L361 289.5L359.5 290.5L359 292L360 294.5L368 293.5L375 294.5L383 297L388 298L390.5 297L392.5 297.5L394 298.5L395.5 298.5L397.5 298L399.5 298.5L401 299.5L402 299.5L403 297.5L404.5 295.5L406 295L408 294.5L410 295L412 295.5L413 297L414.5 296.5L416 295.5L417 294L416.5 292.5L417.5 291L418.5 290.5L419.5 289.5L420 288L421.5 287.5L424 287L425.5 286.5L425.5 285.5L426.5 284.5L428 283.5L428.5 282.5L429.5 281.5L430 280.5L431.5 280.5L432.5 278L434 273L435 266.5L435.5 257.5L437 257.5L437.5 258L438.5 258.5L439.5 257.5L440.5 257.5L442 257L443 256.5L444 256L444.5 256.5L445.5 257.5L446.5 257.5L448 259L449 259.5L449.5 261L450.5 265.5L451.5 268L453 271.5L453 272.5L452.5 274L452.5 276L452 280.5L451.5 282.5L452 283.5L452.5 285.5L451.5 287.5L450 290.5L448.5 291.5L448 291.5L446 293L445 294L444 293.5L443 294L442 296L441 297L438.5 297.5L438 297.5L436.5 297.5L435.5 298L434.5 299L433.5 299.5L432.5 299.5L431 299.5L430.5 300.5L430 302L429.5 303L429 304L427.5 304.5L426.5 305L427 306L426 306.5L423.5 307L421.5 308.5L420.5 310L419 311L417 312L414.5 313.5L414 315L415 316L415.5 316.5L415 317.5L414 317.5L413 317L412 317L411 317L411 318L411 319L410.5 319.5L409.5 320L409 320.5L408.5 321.5L407 323.5L405 325L403 327.5L401.5 330.5L400 332.5L398.5 333.5L397 335L396.5 337L394.5 339.5L391.5 343.5L388.5 346L386 347.5L384.5 349L384 351L382.5 353L379.5 355L378.5 356ZM298 548.5L298 550L297 550L295 548.5L294 547.5L294 547L296 547.5L297.5 548L298 548.5Z"/></g><rect class="map__band" x="119.5" y="116.5" width="24.5" height="85.5" rx="3"/><a href="#tesis" class="map__p27"><title>03: remociones tsunamigénicas en fiordos de Patagonia</title><rect class="map__area" x="51.5" y="600.5" width="43.5" height="107" rx="3"/></a><path class="map__leader" d="M111.5 159.5L119.5 159.5"/><text class="map__label map__label--sm" x="108.5" y="159.5" text-anchor="end"><tspan data-lang="es">Antearco externo</tspan><tspan data-lang="en" hidden>Outer forearc</tspan></text><text class="map__tick" x="108.5" y="172.5" text-anchor="end"><tspan data-lang="es">19° a 23° S</tspan><tspan data-lang="en" hidden>19° to 23° S</tspan></text><path class="map__leader map__leader--p27" d="M179 122L210 122L226 122"/><text class="map__label map__label--p27" x="232" y="126"><tspan data-lang="es">Colchane</tspan><tspan data-lang="en" hidden>Colchane</tspan></text><path class="map__leader" d="M147.5 136L210 136L226 141"/><text class="map__label" x="232" y="145"><tspan data-lang="es">Pisagua e Iquique</tspan><tspan data-lang="en" hidden>Pisagua and Iquique</tspan></text><path class="map__leader" d="M143.5 209.5L210 209.5L226 209.5"/><text class="map__label" x="232" y="213.5"><tspan data-lang="es">Mejillones y Antofagasta</tspan><tspan data-lang="en" hidden>Mejillones and Antofagasta</tspan></text><path class="map__leader" d="M134.5 292L210 292L226 292"/><text class="map__label" x="232" y="296"><tspan data-lang="es">Caldera y Puerto Viejo</tspan><tspan data-lang="en" hidden>Caldera and Puerto Viejo</tspan></text><path class="map__leader" d="M127 319.5L210 319.5L226 319.5"/><text class="map__label" x="232" y="323.5"><tspan data-lang="es">Huasco</tspan><tspan data-lang="en" hidden>Huasco</tspan></text><path class="map__leader map__leader--p27" d="M123.5 331.5L210 331.5L226 338.5"/><text class="map__label map__label--p27" x="232" y="342.5"><tspan data-lang="es">Isla Chañaral</tspan><tspan data-lang="en" hidden>Isla Chañaral</tspan></text><path class="map__leader" d="M125 354.5L210 354.5L226 357.5"/><text class="map__label" x="232" y="361.5"><tspan data-lang="es">Coquimbo y Tongoy</tspan><tspan data-lang="en" hidden>Coquimbo and Tongoy</tspan></text><path class="map__leader" d="M132 367L210 367L226 376.5"/><text class="map__label" x="232" y="380.5"><tspan data-lang="es">Monte Patria</tspan><tspan data-lang="en" hidden>Monte Patria</tspan></text><path class="map__leader" d="M128 387L210 387L226 395.5"/><text class="map__label" x="232" y="399.5"><tspan data-lang="es">Illapel, sismo de 2015</tspan><tspan data-lang="en" hidden>Illapel, 2015 earthquake</tspan></text><path class="map__leader" d="M121.5 417L210 417L226 417"/><text class="map__label" x="232" y="421"><tspan data-lang="es">Valparaíso y Viña del Mar</tspan><tspan data-lang="en" hidden>Valparaíso and Viña del Mar</tspan></text><path class="map__leader" d="M112.5 446L210 446L226 446"/><text class="map__label" x="232" y="450"><tspan data-lang="es">Pichilemu</tspan><tspan data-lang="en" hidden>Pichilemu</tspan></text><path class="map__leader" d="M89 487L210 487L226 487"/><text class="map__label" x="232" y="491"><tspan data-lang="es">Maule, sismo de 2010</tspan><tspan data-lang="en" hidden>Maule, 2010 earthquake</tspan></text><path class="map__leader" d="M93 494L210 494L226 506"/><text class="map__label" x="232" y="510"><tspan data-lang="es">Bahía de Concepción</tspan><tspan data-lang="en" hidden>Concepción Bay</tspan></text><path class="map__leader" d="M106 563L210 563L226 563"/><text class="map__label" x="232" y="567"><tspan data-lang="es">Lago Riñihue</tspan><tspan data-lang="en" hidden>Lake Riñihue</tspan></text><path class="map__leader map__leader--p27" d="M79.5 572L79.5 582L226 582"/><text class="map__label map__label--p27" x="232" y="586"><tspan data-lang="es">Corral</tspan><tspan data-lang="en" hidden>Corral</tspan></text><path class="map__leader map__leader--p27" d="M104 654.5L210 654.5L226 654.5"/><text class="map__label map__label--p27" x="232" y="658.5"><tspan data-lang="es">Fiordos de Patagonia</tspan><tspan data-lang="en" hidden>Patagonian fjords</tspan></text><a href="#tesis" class="map__p27"><title>07: remociones en masa y aluviones en Colchane</title><circle class="map__ring" cx="170" cy="122" r="8"/><circle class="map__ringdot" cx="170" cy="122" r="2.5"/></a><a href="#tesis" class="map__p27"><title>05: fallas corticales de la península de Mejillones</title><circle class="map__ring" cx="135.5" cy="204.5" r="8"/></a><a href="#tesis" class="map__p27"><title>06: cañón submarino y tsunami en Isla Chañaral</title><circle class="map__ring" cx="114.5" cy="331.5" r="8"/><circle class="map__ringdot" cx="114.5" cy="331.5" r="2.5"/></a><a href="#tesis" class="map__p27"><title>01 y 02: geopatrimonio y efectos de sitio en Monte Patria</title><circle class="map__ring" cx="126" cy="367" r="8"/></a><a href="#tesis" class="map__p27"><title>04: multiamenaza en Corral</title><circle class="map__ring" cx="79.5" cy="564" r="8"/><circle class="map__ringdot" cx="79.5" cy="564" r="2.5"/></a><circle class="map__dot map__dot--A" cx="140.5" cy="129.5" r="4.5"/><circle class="map__dot map__dot--A" cx="141.5" cy="142.5" r="4.5"/><circle class="map__dot map__dot--B" cx="135.5" cy="204.5" r="4.5"/><circle class="map__dot map__dot--T" cx="137.5" cy="215" r="4.5"/><circle class="map__dot map__dot--T" cx="128.5" cy="289.5" r="4.5"/><circle class="map__dot map__dot--T" cx="126.5" cy="295" r="4.5"/><circle class="map__dot map__dot--T" cx="121" cy="319.5" r="4.5"/><circle class="map__dot map__dot--T" cx="119" cy="351" r="4.5"/><circle class="map__dot map__dot--T" cx="116" cy="357.5" r="4.5"/><circle class="map__dot map__dot--T" cx="126" cy="367" r="4.5"/><circle class="map__dot map__dot--A" cx="122" cy="387" r="4.5"/><circle class="map__dot map__dot--T" cx="115.5" cy="414" r="4.5"/><circle class="map__dot map__dot--T" cx="115" cy="417" r="4.5"/><circle class="map__dot map__dot--T" cx="112" cy="420.5" r="4.5"/><circle class="map__dot map__dot--T" cx="106.5" cy="446" r="4.5"/><circle class="map__dot map__dot--T" cx="83" cy="487" r="4.5"/><circle class="map__dot map__dot--A" cx="87" cy="494" r="4.5"/><circle class="map__dot map__dot--T" cx="100" cy="563" r="4.5"/><circle class="map__dot map__dot--T" cx="16" cy="290.5" r="4.5"/><text class="map__label map__label--sm" x="26" y="288.5"><tspan data-lang="es">Isla de Pascua</tspan><tspan data-lang="en" hidden>Easter Island</tspan></text><text class="map__tick" x="26" y="301.5"><tspan data-lang="es">fuera de escala</tspan><tspan data-lang="en" hidden>not to scale</tspan></text><line class="map__sep" x1="0" x2="400" y1="746" y2="746"/><text class="map__tick" x="2" y="764"><tspan data-lang="es">Fuera del mapa, sin escala</tspan><tspan data-lang="en" hidden>Off the map, not to scale</tspan></text><circle class="map__dot map__dot--T" cx="10" cy="782" r="4.5"/><text class="map__label map__label--sm" x="20" y="786"><tspan data-lang="es">Tohoku-oki, Japón</tspan><tspan data-lang="en" hidden>Tohoku-oki, Japan</tspan></text><circle class="map__dot map__dot--A" cx="144" cy="782" r="4.5"/><text class="map__label map__label--sm" x="154" y="786"><tspan data-lang="es">Palu, Sulawesi</tspan><tspan data-lang="en" hidden>Palu, Sulawesi</tspan></text><circle class="map__dot map__dot--T" cx="272" cy="782" r="4.5"/><text class="map__label map__label--sm" x="282" y="786"><tspan data-lang="es">Nueva Zelanda</tspan><tspan data-lang="en" hidden>New Zealand</tspan></text><a href="#tesis" class="map__p27"><title>08: tsunamis por desprendimiento de hielo en Base Prat</title><circle class="map__ring" cx="12" cy="806" r="8"/><circle class="map__ringdot" cx="12" cy="806" r="2.5"/></a><text class="map__label map__label--sm map__label--p27" x="26" y="810"><tspan data-lang="es">Base Prat, Antártica</tspan><tspan data-lang="en" hidden>Prat Base, Antarctica</tspan></text></svg>
+      <figcaption id="map-cap">
+        <span class="sites__keys"><span class="sites__key"><svg viewBox="0 0 12 12" aria-hidden="true"><circle class="map__dot map__dot--A" cx="6" cy="6" r="4.5"/></svg><span data-lang="es">Artículos</span><span data-lang="en" hidden>Papers</span></span><span class="sites__key"><svg viewBox="0 0 12 12" aria-hidden="true"><circle class="map__dot map__dot--T" cx="6" cy="6" r="4.5"/></svg><span data-lang="es">Tesis guiadas</span><span data-lang="en" hidden>Supervised theses</span></span><span class="sites__key"><svg viewBox="0 0 12 12" aria-hidden="true"><circle class="map__dot map__dot--B" cx="6" cy="6" r="4.5"/></svg><span data-lang="es">Ambos</span><span data-lang="en" hidden>Both</span></span><span class="sites__key"><svg viewBox="0 0 12 12" aria-hidden="true"><rect class="map__band" x="1" y="1" width="10" height="10" rx="2"/></svg><span data-lang="es">Zona de estudio</span><span data-lang="en" hidden>Study area</span></span><span class="sites__key"><svg viewBox="0 0 20 20" aria-hidden="true"><circle class="map__ring" cx="10" cy="10" r="7.5"/><circle class="map__ringdot" cx="10" cy="10" r="2.5"/></svg><span data-lang="es">Temas de tesis 2027</span><span data-lang="en" hidden>2027 thesis topics</span></span></span>
+        <span class="sites__note"><span data-lang="es">Lugares estudiados en mis artículos y en las tesis que he guiado entre 2004 y 2026. Esquema con posiciones aproximadas; contorno de Natural Earth. En rojo, las zonas de los temas de tesis 2027; cada una lleva a la lista de temas.</span><span data-lang="en" hidden>Places studied in my papers and in the theses I supervised, 2004 to 2026. Schematic, approximate positions; outline from Natural Earth. In red, the areas of the 2027 thesis topics; each links to the topic list.</span></span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="section section--rule" id="investigacion" aria-labelledby="h-inv">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-inv"><span data-lang="es">Cinco líneas, de norte a sur</span><span data-lang="en" hidden>Five lines of work, north to south</span></h2>
+        <p class="head__intro" data-lang="es">Las ordeno de norte a sur, según dónde están los datos de cada una.</p>
+        <p class="head__intro" data-lang="en" hidden>Ordered north to south, according to where the data for each one come from.</p>
+      </div>
+
+      <div class="lines">
+        <article class="line" id="tsunami">
+          <div class="line__where">
+            <span class="line__lat"><span data-lang="es">15° a 30° S</span><span data-lang="en" hidden>15° to 30° S</span></span>
+            <span class="line__place"><span data-lang="es">Sur de Perú y norte de Chile</span><span data-lang="en" hidden>Southern Peru and northern Chile</span></span>
+          </div>
+          <div>
+            <h3><span data-lang="es">Evaluación de amenaza de tsunami</span><span data-lang="en" hidden>Tsunami hazard assessment</span></h3>
+            <p data-lang="es">Estimo la amenaza de tsunami combinando escenarios de ruptura determinísticos y estocásticos, como hice para Iquique. En mi postdoctorado FONDECYT (2020-2023) trabajé en las rupturas de los tsunamis históricos de 1868, 1877 y 1922. Ahora agrupamos escenarios estocásticos con aprendizaje automático para el norte de Chile; el primer resultado salió en LACCEI 2026.</p>
+            <p data-lang="en" hidden>I estimate tsunami hazard by combining deterministic and stochastic rupture scenarios, as I did for Iquique. In my FONDECYT postdoc (2020-2023) I worked on the ruptures of the historical tsunamis of 1868, 1877 and 1922. We now cluster stochastic scenarios for northern Chile with machine learning; the first result appeared at LACCEI 2026.</p>
+          </div>
+        </article>
+        <article class="line" id="fallas">
+          <div class="line__where">
+            <span class="line__lat"><span data-lang="es">19° a 23° S</span><span data-lang="en" hidden>19° to 23° S</span></span>
+            <span class="line__place"><span data-lang="es">Antearco del norte de Chile y falla de Pichilemu</span><span data-lang="en" hidden>Northern Chile forearc and Pichilemu fault</span></span>
+          </div>
+          <div>
+            <h3><span data-lang="es">Cambio de esfuerzo de Coulomb (ΔCFS) en fallas corticales</span><span data-lang="en" hidden>Coulomb stress change (ΔCFS) on crustal faults</span></h3>
+            <p data-lang="es">Calculo el cambio de esfuerzo de Coulomb que un terremoto de subducción transfiere a las fallas corticales de la placa superior, para estimar cuáles podrían activarse. Lo aplicamos al antearco externo del norte de Chile. Con tesistas lo hemos llevado a las fallas Mejillones, Salar del Carmen, Naguayán, Caldera, Puerto Aldea, Marga-Marga, Quintay y Pichilemu, y a Itozawa y Yunodake en Japón tras el terremoto de 2011.</p>
+            <p data-lang="en" hidden>I compute the Coulomb stress change that a subduction earthquake transfers to crustal faults in the upper plate, to estimate which ones could be triggered. We applied it to the northern Chile outer forearc. With thesis students we have taken it to the Mejillones, Salar del Carmen, Naguayán, Caldera, Puerto Aldea, Marga-Marga, Quintay and Pichilemu faults, and to Itozawa and Yunodake in Japan after the 2011 earthquake.</p>
+          </div>
+        </article>
+        <article class="line" id="monte-patria">
+          <div class="line__where">
+            <span class="line__lat"><span data-lang="es">30,69</span><span data-lang="en" hidden>30.69</span>° S</span>
+            <span class="line__place"><span data-lang="es">Monte Patria (Coquimbo) y Viña del Mar</span><span data-lang="en" hidden>Monte Patria (Coquimbo) and Viña del Mar</span></span>
+          </div>
+          <div>
+            <h3><span data-lang="es">Susceptibilidad de remociones en masa y aluviones</span><span data-lang="en" hidden>Landslide and debris-flow susceptibility</span></h3>
+            <p data-lang="es">Evalúo la susceptibilidad de remociones en masa en Monte Patria y en Viña del Mar, donde una tesis en curso mide su efecto sobre dos CESFAM después de los incendios. En Monte Patria instalo sensores para una propuesta de alerta temprana. En julio de 2026 participé en el reporte post-desastre de Cigiden R+ sobre los ríos atmosféricos entre Atacama y Los Ríos.</p>
+            <p data-lang="en" hidden>I assess landslide susceptibility in Monte Patria and in Viña del Mar, where an ongoing thesis measures its effect on two primary health centres after the wildfires. In Monte Patria I deploy sensors for a proposed early warning system. In July 2026 I co-authored the Cigiden R+ post-disaster report on the atmospheric rivers between Atacama and Los Ríos.</p>
+          </div>
+        </article>
+        <article class="line" id="marina">
+          <div class="line__where">
+            <span class="line__lat"><span data-lang="es">33° a 40° S</span><span data-lang="en" hidden>33° to 40° S</span></span>
+            <span class="line__place"><span data-lang="es">Margen entre Valparaíso y Corral</span><span data-lang="en" hidden>Margin between Valparaíso and Corral</span></span>
+          </div>
+          <div>
+            <h3><span data-lang="es">Geología marina</span><span data-lang="en" hidden>Marine geology</span></h3>
+            <p data-lang="es">Proceso e interpreto batimetría y perfiles sísmicos de alta resolución del fondo marino. Empecé en el proyecto FONDEF de hidratos de gas, con datos de reflexión sísmica adquiridos a bordo del AGOR Vidal Gormaz entre Valparaíso y Corral. Después apliqué el perfilador de subfondo (SBP) a terminales portuarios y emisarios submarinos en Chile y Perú. Desde 2022 integro el comité directivo del Grupo de Geología y Geofísica Marina de la Sociedad Geológica de Chile.</p>
+            <p data-lang="en" hidden>I process and interpret bathymetry and high-resolution seismic profiles of the seafloor. I started in the FONDEF gas hydrates project, with seismic reflection data acquired aboard the AGOR Vidal Gormaz between Valparaíso and Corral. Later I applied sub-bottom profiling (SBP) to port terminals and submarine outfalls in Chile and Peru. Since 2022 I have sat on the steering committee of the Marine Geology and Geophysics Group of the Geological Society of Chile.</p>
+          </div>
+        </article>
+        <article class="line" id="cascada">
+          <div class="line__where">
+            <span class="line__lat"><span data-lang="es">39,84</span><span data-lang="en" hidden>39.84</span>° S</span>
+            <span class="line__place"><span data-lang="es">Lago Riñihue, Los Ríos</span><span data-lang="en" hidden>Lake Riñihue, Los Ríos</span></span>
+          </div>
+          <div>
+            <h3><span data-lang="es">Eventos en cascada y eventos HILP</span><span data-lang="en" hidden>Cascading events and HILP events</span></h3>
+            <p data-lang="es">Estudio cadenas en que una amenaza gatilla otra, y eventos de alto impacto y baja probabilidad (HILP). Un caso es el lahar del complejo Mocho-Choshuenco que, al entrar al lago Riñihue, generaría un tsunami. Otro son las lluvias extremas de El Niño que terminan en aluviones en Tarapacá. Es el tema de mi curso Amenazas en Cascada en Zonas de Subducción.</p>
+            <p data-lang="en" hidden>I study chains in which one hazard triggers another, and high-impact, low-probability (HILP) events. One case is a lahar from the Mocho-Choshuenco complex that would generate a tsunami on entering Lake Riñihue. Another is extreme El Niño rainfall ending in debris flows in Tarapacá. It is the subject of my course Cascading Hazards in Subduction Zones.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--rule" id="proyectos" aria-labelledby="h-proy">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-proy"><span data-lang="es">Proyectos</span><span data-lang="en" hidden>Projects</span></h2>
+        <p class="head__intro"><span data-lang="es">Uno en curso con la Corporación Municipal de Viña del Mar y dos terminados como investigador responsable.</span><span data-lang="en" hidden>One ongoing with the Corporación Municipal de Viña del Mar, and two completed as lead investigator.</span></p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div>
+            <h3>Salud Resiliente Viña</h3>
+            <p class="project__note"><span data-lang="es">Gestión del riesgo multiamenaza junto a la Corporación Municipal de Viña del Mar.</span><span data-lang="en" hidden>Multi-hazard risk management with the Corporación Municipal de Viña del Mar.</span></p>
+          </div>
+          <dl class="meta">
+            <dt><span data-lang="es">Financiamiento</span><span data-lang="en" hidden>Funding</span></dt>
+            <dd><span data-lang="es">Endowment I+D, Universidad Andrés Bello (DI-03-25/ICS)</span><span data-lang="en" hidden>Endowment R&amp;D, Universidad Andrés Bello (DI-03-25/ICS)</span></dd>
+            <dt><span data-lang="es">Rol</span><span data-lang="en" hidden>Role</span></dt>
+            <dd><span data-lang="es">Investigador principal</span><span data-lang="en" hidden>Principal investigator</span></dd>
+            <dt><span data-lang="es">Período</span><span data-lang="en" hidden>Period</span></dt>
+            <dd><span data-lang="es">En curso</span><span data-lang="en" hidden>Ongoing</span></dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div>
+            <h3><span data-lang="es">Patrones de falla estocásticos en la zona de subducción sudamericana (15° a 30° S)</span><span data-lang="en" hidden>Stochastic slip patterns in the South American subduction zone (15° to 30° S)</span></h3>
+            <p class="project__note"><span data-lang="es">Complejidad de ruptura de los terremotos tsunamigénicos históricos. Institución patrocinante: UCSC.</span><span data-lang="en" hidden>Rupture complexity of historical tsunamigenic earthquakes. Host institution: UCSC.</span></p>
+          </div>
+          <dl class="meta">
+            <dt><span data-lang="es">Financiamiento</span><span data-lang="en" hidden>Funding</span></dt>
+            <dd><span data-lang="es">FONDECYT Postdoctorado</span><span data-lang="en" hidden>FONDECYT Postdoctoral</span></dd>
+            <dt><span data-lang="es">Rol</span><span data-lang="en" hidden>Role</span></dt>
+            <dd><span data-lang="es">Investigador responsable</span><span data-lang="en" hidden>Lead investigator</span></dd>
+            <dt><span data-lang="es">Período</span><span data-lang="en" hidden>Period</span></dt>
+            <dd>2020-2023</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div>
+            <h3><span data-lang="es">Ruptura estocástica de terremotos tsunamigénicos</span><span data-lang="en" hidden>Stochastic rupture of tsunamigenic earthquakes</span></h3>
+            <p class="project__note"><span data-lang="es">Escenarios sísmicos y modelación de generación, propagación e impacto de tsunamis en el clúster Leftraru.</span><span data-lang="en" hidden>Earthquake scenarios and modelling of tsunami generation, propagation and impact on the Leftraru cluster.</span></p>
+          </div>
+          <dl class="meta">
+            <dt><span data-lang="es">Soporte</span><span data-lang="en" hidden>Support</span></dt>
+            <dd><span data-lang="es">Laboratorio Nacional de Computación de Alto Rendimiento (NLHPC)</span><span data-lang="en" hidden>National Laboratory for High Performance Computing (NLHPC)</span></dd>
+            <dt><span data-lang="es">Rol</span><span data-lang="en" hidden>Role</span></dt>
+            <dd><span data-lang="es">Investigador responsable</span><span data-lang="en" hidden>Lead investigator</span></dd>
+            <dt><span data-lang="es">Período</span><span data-lang="en" hidden>Period</span></dt>
+            <dd>2020-2025</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--rule" id="trayectoria" aria-labelledby="h-tra">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-tra"><span data-lang="es">Veinte años modelando tsunamis en Chile</span><span data-lang="en" hidden>Twenty years modelling tsunamis in Chile</span></h2>
+        <p class="head__intro"><span data-lang="es">Empecé en el SHOA haciendo cartas de inundación y operando la alarma de maremotos. La universidad llegó después.</span><span data-lang="en" hidden>I started at SHOA, making inundation maps and running the tsunami warning system. The university came later.</span></p>
+      </div>
+      <ol class="cv">
+          <li class="cv__row"><span class="cv__years">2026-<span data-lang="es">hoy</span><span data-lang="en" hidden>today</span></span><span class="cv__what"><span class="cv__inst">Cigiden R+</span><span class="cv__role"><span data-lang="es">Investigador adjunto, línea de amenazas</span><span data-lang="en" hidden>Associate researcher, hazards line</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2022-<span data-lang="es">hoy</span><span data-lang="en" hidden>today</span></span><span class="cv__what"><span class="cv__inst">Universidad Andrés Bello</span><span class="cv__role"><span data-lang="es">Profesor adjunto desde 2022 y profesor asistente desde 2024, Escuela de Ciencias de la Tierra</span><span data-lang="en" hidden>Adjunct professor from 2022, assistant professor from 2024, School of Earth Sciences</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2023-2025</span><span class="cv__what"><span class="cv__inst">CIGIDEN</span><span class="cv__role"><span data-lang="es">Investigador en jornada parcial</span><span data-lang="en" hidden>Part-time researcher</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2020-2023</span><span class="cv__what"><span class="cv__inst"><span data-lang="es">FONDECYT Postdoctorado, UCSC</span><span data-lang="en" hidden>FONDECYT Postdoctoral, UCSC</span></span><span class="cv__role"><span data-lang="es">Investigador responsable: patrones de ruptura de terremotos tsunamigénicos históricos entre 15° y 30° S</span><span data-lang="en" hidden>Lead investigator: rupture patterns of historical tsunamigenic earthquakes between 15° and 30° S</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2013-2020</span><span class="cv__what"><span class="cv__inst">CIGIDEN</span><span class="cv__role"><span data-lang="es">Investigador doctoral y luego postdoctoral en amenaza de tsunami del sur de Perú y el norte de Chile</span><span data-lang="en" hidden>Doctoral, then postdoctoral researcher on tsunami hazard in southern Peru and northern Chile</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2011-2015</span><span class="cv__what"><span class="cv__inst"><span data-lang="es">Proyecto JICA/SATREPS Chile-Japón</span><span data-lang="en" hidden>JICA/SATREPS Chile-Japan project</span></span><span class="cv__role"><span data-lang="es">Base de datos de pronóstico de tsunamis para el SNAM</span><span data-lang="en" hidden>Tsunami forecast database for SNAM</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2012-2013</span><span class="cv__what"><span class="cv__inst"><span data-lang="es">Instituto Nacional de Hidráulica</span><span data-lang="en" hidden>National Hydraulics Institute (INH)</span></span><span class="cv__role"><span data-lang="es">Ingeniero de proyectos, modelos numéricos para cartas de inundación</span><span data-lang="en" hidden>Project engineer, numerical models for inundation maps</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2006-2012</span><span class="cv__what"><span class="cv__inst">SHOA</span><span class="cv__role"><span data-lang="es">Cartas de inundación por tsunami y operación del Sistema Nacional de Alarma de Maremotos</span><span data-lang="en" hidden>Tsunami inundation maps and operation of the National Tsunami Warning System</span></span></span></li>
+          <li class="cv__row"><span class="cv__years">2001-2005</span><span class="cv__what"><span class="cv__inst"><span data-lang="es">PUCV, proyecto FONDEF D00I1104</span><span data-lang="en" hidden>PUCV, FONDEF project D00I1104</span></span><span class="cv__role"><span data-lang="es">Batimetría y reflexión sísmica para hidratos de gas entre Valparaíso y Corral</span><span data-lang="en" hidden>Bathymetry and seismic reflection for gas hydrates between Valparaíso and Corral</span></span></span></li>
+      </ol>
+      <dl class="meta cv__extra">
+        <dt><span data-lang="es">Servicio</span><span data-lang="en" hidden>Service</span></dt>
+        <dd><span data-lang="es">Encargado del Área Temática 9, Geología Marina, Ciencias Planetarias, Geoarqueología y Otras Áreas Afines, XVIII Congreso Geológico Chileno, Valdivia, diciembre de 2026. Comité directivo del Grupo de Geología y Geofísica Marina, Sociedad Geológica de Chile, desde 2022.</span><span data-lang="en" hidden>Co-chair of Thematic Area 9 (Marine Geology, Planetary Sciences, Geoarchaeology and related fields), XVIII Chilean Geological Congress, Valdivia, December 2026. Steering committee, Marine Geology and Geophysics Group, Geological Society of Chile, since 2022.</span></dd>
+        <dt><span data-lang="es">Distinciones</span><span data-lang="en" hidden>Awards</span></dt>
+        <dd><span data-lang="es">Coastal Engineering Journal Award 2020, por el artículo sobre el tsunami de Sulawesi. Mejor presentación oral en Peligros y Riesgos Naturales, XV Congreso Geológico Chileno, 2018.</span><span data-lang="en" hidden>Coastal Engineering Journal Award 2020, for the Sulawesi tsunami paper. Best oral presentation in Natural Hazards and Risks, XV Chilean Geological Congress, 2018.</span></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--rule" id="publicaciones" aria-labelledby="h-pub">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-pub"><span data-lang="es">Publicaciones seleccionadas</span><span data-lang="en" hidden>Selected publications</span></h2>
+        <p class="head__intro"><span data-lang="es">Tengo 17 artículos en revistas indexadas en WoS. Aquí van los más recientes y los que mejor representan mis líneas; la lista completa está en <a href="https://orcid.org/0000-0002-7200-1024">ORCID</a> y <a href="https://scholar.google.com/citations?user=qEjTpH8AAAAJ">Google Scholar</a>.</span><span data-lang="en" hidden>I have 17 papers in WoS-indexed journals. These are the most recent ones and those closest to my research lines; the full list is on <a href="https://orcid.org/0000-0002-7200-1024">ORCID</a> and <a href="https://scholar.google.com/citations?user=qEjTpH8AAAAJ">Google Scholar</a>.</span></p>
+      </div>
+      <div class="pubs">
+        <ol class="pubs__body">
+          <li class="pub"><span class="pub__authors">Araneda, J., M. Díaz <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> <span class="me">J. González</span> (2026).</span> <span class="pub__title">Unravelling seismic-tsunami complexity in northern Chile through stochastic scenario clustering.</span> <span class="pub__venue"><i>Proceedings of the 24th LACCEI International Multi-Conference for Engineering, Education and Technology</i>.</span> <a class="pub__doi" href="https://doi.org/10.18687/laccei2026.1.1.1743">doi.org/10.18687/laccei2026.1.1.1743</a></li>
+          <li class="pub"><span class="pub__authors">Aguirre, J., I. Aránguiz, C. Astroza, <span class="me">J. González</span> <span data-lang="es">y otros</span><span data-lang="en" hidden>et al.</span> (2026).</span> <span class="pub__title">Ríos atmosféricos y desastres (7 a 20 de julio de 2026): aluviones, remociones en masa, marejadas, crecidas fluviales, flujos de barro y socavación entre las regiones de Atacama y de Los Ríos.</span> <span class="pub__venue">Reporte post-desastre, Cigiden R+.</span> <a class="pub__doi" href="https://doi.org/10.5281/zenodo.23886756">doi.org/10.5281/zenodo.23886756</a></li>
+          <li class="pub"><span class="pub__authors">Castillo-Rivera, C., M. Bravo, I. Calisto, <span class="me">J. González</span> <span data-lang="es">y otros</span><span data-lang="en" hidden>et al.</span> (2025).</span> <span class="pub__title">Detection of near- and far-field traveling ionospheric disturbances during tsunami events over South Pacific.</span> <span class="pub__venue"><i>Advances in Space Research</i> 75(1), 1033-1051.</span> <a class="pub__doi" href="https://doi.org/10.1016/j.asr.2024.10.020">doi.org/10.1016/j.asr.2024.10.020</a></li>
+          <li class="pub"><span class="pub__authors">Cortés-Aranda, J., <span class="me">J. González</span>, D. Molina, M. Miller, A. Tassara <span data-lang="es">y otros</span><span data-lang="en" hidden>et al.</span> (2022).</span> <span class="pub__title">Linking upper-plate reactivation with the megathrust earthquake cycle: the case of the northern Chile outer forearc (19°S-23°S).</span> <span class="pub__venue"><i>Tectonics</i> 41(11), e2021TC006956.</span> <a class="pub__doi" href="https://doi.org/10.1029/2021TC006956">doi.org/10.1029/2021TC006956</a></li>
+          <li class="pub"><span class="pub__authors">Shrivastava, M.N., A.K. Maurya, G. González, P.S. Sunil, <span class="me">J. González</span>, P. Salazar <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> R. Aránguiz (2021).</span> <span class="pub__title">Tsunami detection by GPS-derived ionospheric total electron content.</span> <span class="pub__venue"><i>Scientific Reports</i> 11(1), 1-13.</span> <a class="pub__doi" href="https://doi.org/10.1038/s41598-021-92479-3">doi.org/10.1038/s41598-021-92479-3</a></li>
+          <li class="pub"><span class="pub__authors"><span class="me">González, J.</span>, G. González, R. Aránguiz, D. Melgar, N. Zamora, M.N. Shrivastava, R. Das, P.A. Catalán <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> R. Cienfuegos (2020).</span> <span class="pub__title">A hybrid deterministic and stochastic approach for tsunami hazard assessment in Iquique, Chile.</span> <span class="pub__venue"><i>Natural Hazards</i> 100, 231-254.</span> <a class="pub__doi" href="https://doi.org/10.1007/s11069-019-03809-8">doi.org/10.1007/s11069-019-03809-8</a></li>
+          <li class="pub"><span class="pub__authors">Becerra, I., R. Aránguiz, <span class="me">J. González</span> <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> R. Benavente (2020).</span> <span class="pub__title">An improvement of tsunami hazard analysis in Central Chile based on stochastic rupture scenarios.</span> <span class="pub__venue"><i>Coastal Engineering Journal</i> 62(4), 473-488.</span> <a class="pub__doi" href="https://doi.org/10.1080/21664250.2020.1812943">doi.org/10.1080/21664250.2020.1812943</a></li>
+          <li class="pub"><span class="pub__authors">Aránguiz, R., M. Esteban, H. Takagi, <span class="me">J. González</span> <span data-lang="es">y otros</span><span data-lang="en" hidden>et al.</span> (2020).</span> <span class="pub__title">The 2018 Sulawesi tsunami in Palu city as a result of several landslides and coseismic tsunamis.</span> <span class="pub__venue"><i>Coastal Engineering Journal</i> 62(4), 445-459.</span> <a class="pub__doi" href="https://doi.org/10.1080/21664250.2020.1780719">doi.org/10.1080/21664250.2020.1780719</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--well" id="docencia" aria-labelledby="h-doc">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-doc"><span data-lang="es">Cursos en la carrera de Geología UNAB</span><span data-lang="en" hidden>Courses in the UNAB Geology degree</span></h2>
+        <p class="head__intro"><span data-lang="es">Nueve asignaturas desde 2022. Antes enseñé geología de tsunamis en la PUCV y cartografía en la UCSC. En los cursos uso aprendizaje basado en proyectos y Students as Partners, en que los estudiantes codiseñan parte de las actividades.</span><span data-lang="en" hidden>Nine courses since 2022. Before that I taught tsunami geology at PUCV and mapping at UCSC. I teach through project-based learning and Students as Partners, where students co-design part of the coursework.</span></p>
+      </div>
+      <ul class="courses">
+        <li class="course"><span class="course__name"><span data-lang="es">Sistema Tierra</span><span data-lang="en" hidden>Earth System</span></span><span class="course__meta">GEOL 101, <span data-lang="es">obligatoria, 2023-2026</span><span data-lang="en" hidden>compulsory, 2023-2026</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Fundamentos de Geología</span><span data-lang="en" hidden>Fundamentals of Geology</span></span><span class="course__meta">GEOL 203, <span data-lang="es">obligatoria, 2025-2026</span><span data-lang="en" hidden>compulsory, 2025-2026</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Peligros Geológicos y Planificación Territorial</span><span data-lang="en" hidden>Geological Hazards and Land-Use Planning</span></span><span class="course__meta">GEOL 904, <span data-lang="es">obligatoria, 2025-2026</span><span data-lang="en" hidden>compulsory, 2025-2026</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Amenazas en Cascada en Zonas de Subducción</span><span data-lang="en" hidden>Cascading Hazards in Subduction Zones</span></span><span class="course__meta">GEO P015, <span data-lang="es">electiva, 2026</span><span data-lang="en" hidden>elective, 2026</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Ingeniería Geológica y Riesgos Geológicos</span><span data-lang="en" hidden>Engineering Geology and Geological Risk</span></span><span class="course__meta">GEO 507, <span data-lang="es">obligatoria, 2022-2025</span><span data-lang="en" hidden>compulsory, 2022-2025</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Tsunami: geología, peligros y riesgos</span><span data-lang="en" hidden>Tsunami: geology, hazards and risk</span></span><span class="course__meta">GEO FP 039, <span data-lang="es">electiva, 2024</span><span data-lang="en" hidden>elective, 2024</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Tópicos de programación científica aplicados a ciencias de la Tierra</span><span data-lang="en" hidden>Scientific programming for Earth sciences</span></span><span class="course__meta">GEO FP 041, <span data-lang="es">electiva, 2024</span><span data-lang="en" hidden>elective, 2024</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Fundamentos de Programación y Análisis Numérico</span><span data-lang="en" hidden>Programming and Numerical Analysis</span></span><span class="course__meta">GEOL 601, <span data-lang="es">obligatoria, 2023</span><span data-lang="en" hidden>compulsory, 2023</span></span></li>
+        <li class="course"><span class="course__name"><span data-lang="es">Sismología y Tsunamis</span><span data-lang="en" hidden>Seismology and Tsunamis</span></span><span class="course__meta">GEO 504, <span data-lang="es">electiva, 2022</span><span data-lang="en" hidden>elective, 2022</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section band" id="tesis" aria-labelledby="h-tes">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-tes"><span data-lang="es">Temas de tesis 2027</span><span data-lang="en" hidden>Thesis topics for 2027</span></h2>
+        <p class="head__intro"><span data-lang="es">Ocho temas para estudiantes de Geología UNAB, con apoyo de Cigiden R+. Tienen prioridad los de la sede Viña del Mar. Postulación hasta el 30 de noviembre de 2026.</span><span data-lang="en" hidden>Eight topics for UNAB Geology students, supported by Cigiden R+. Students at the Viña del Mar campus have priority. Applications close on 30 November 2026.</span></p>
+      </div>
+      <ol class="t27">
+          <li>
+            <details>
+              <summary><span class="t27__num">01</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Ruta geopatrimonial natural y urbana en Monte Patria</span><span data-lang="en" hidden>Natural and urban geoheritage route in Monte Patria</span></span><span class="t27__place"><span data-lang="es">Monte Patria, Región de Coquimbo</span><span data-lang="en" hidden>Monte Patria, Coquimbo Region</span><span class="t27__lat"><span data-lang="es">30,69° S</span><span data-lang="en" hidden>30.69° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Es posible generar una ruta geopatrimonial con patrimonio natural y construido en la comuna de Monte Patria?</span><span data-lang="en" hidden>Can a geoheritage route combining natural and built heritage be designed for the commune of Monte Patria?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Inventario y valoración de geositios</li><li>Patrimonio construido en adobe y su vínculo geológico</li><li>Talleres con la comunidad y el municipio</li><li>Diseño de la ruta y su material interpretativo</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Inventory and assessment of geosites</li><li>Adobe built heritage and its geological link</li><li>Workshops with the community and the municipality</li><li>Route design and interpretive material</li></ol>
+                <p class="t27__tags"><span data-lang="es">Geopatrimonio, SIG, terreno, divulgación</span><span data-lang="en" hidden>Geoheritage, GIS, fieldwork, outreach</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">02</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Efectos de sitio en iglesias patrimoniales de Monte Patria</span><span data-lang="en" hidden>Site effects on heritage churches in Monte Patria</span></span><span class="t27__place"><span data-lang="es">Monte Patria, Región de Coquimbo</span><span data-lang="en" hidden>Monte Patria, Coquimbo Region</span><span class="t27__lat"><span data-lang="es">30,69° S</span><span data-lang="en" hidden>30.69° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Cómo afectan los efectos de sitio a la infraestructura patrimonial sismorresistente de iglesias?</span><span data-lang="en" hidden>How do site effects affect the earthquake-resistant heritage structure of churches?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Mediciones H/V y MASW en torno a los templos</li><li>Frecuencias propias de muros y torres</li><li>Catastro de daños de 1997 y 2015</li><li>Modelación de respuesta de sitio 1D</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>H/V and MASW measurements around the churches</li><li>Natural frequencies of walls and towers</li><li>Survey of damage from 1997 and 2015</li><li>1D site response modelling</li></ol>
+                <p class="t27__tags"><span data-lang="es">Amenaza sísmica, geofísica, patrimonio</span><span data-lang="en" hidden>Seismic hazard, geophysics, heritage</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">03</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Remociones en masa que pueden generar tsunamis en fiordos de Patagonia</span><span data-lang="en" hidden>Landslides that could generate tsunamis in Patagonian fjords</span></span><span class="t27__place"><span data-lang="es">Fiordos de Los Lagos y Aysén</span><span data-lang="en" hidden>Fjords of Los Lagos and Aysén</span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Cuál es la distribución espacial de remociones en masa en Patagonia susceptibles para generar tsunamis en fiordos?</span><span data-lang="en" hidden>What is the spatial distribution of landslides in Patagonia capable of generating tsunamis in fjords?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Inventario regional con imágenes satelitales</li><li>Mapa de susceptibilidad en laderas de fiordo</li><li>Índice de potencial tsunamigénico</li><li>Catálogo de fuentes para el SHOA</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Regional inventory from satellite imagery</li><li>Susceptibility map of fjord slopes</li><li>Tsunamigenic potential index</li><li>Source catalogue for SHOA</li></ol>
+                <p class="t27__tags"><span data-lang="es">Percepción remota, SIG, tsunami</span><span data-lang="en" hidden>Remote sensing, GIS, tsunami</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">04</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Multiamenaza en Corral: remociones en masa y evacuación por tsunami</span><span data-lang="en" hidden>Multi-hazard in Corral: landslides and tsunami evacuation</span></span><span class="t27__place"><span data-lang="es">Corral, Región de Los Ríos</span><span data-lang="en" hidden>Corral, Los Ríos Region</span><span class="t27__lat"><span data-lang="es">39,89° S</span><span data-lang="en" hidden>39.89° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Cómo afecta la susceptibilidad de remociones en masa a las vías de evacuación por tsunami?</span><span data-lang="en" hidden>How does landslide susceptibility affect tsunami evacuation routes?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Inventario de remociones y mapa de susceptibilidad</li><li>Modelo de evacuación peatonal</li><li>Escenarios de bloqueo de vías</li><li>Terreno en Corral</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Landslide inventory and susceptibility map</li><li>Pedestrian evacuation model</li><li>Route blockage scenarios</li><li>Fieldwork in Corral</li></ol>
+                <p class="t27__tags"><span data-lang="es">Multiamenaza, SIG, tsunami</span><span data-lang="en" hidden>Multi-hazard, GIS, tsunami</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">05</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Morfología tectónica de fallas corticales en la península de Mejillones</span><span data-lang="en" hidden>Tectonic morphology of crustal faults on the Mejillones Peninsula</span></span><span class="t27__place"><span data-lang="es">Península de Mejillones, Región de Antofagasta</span><span data-lang="en" hidden>Mejillones Peninsula, Antofagasta Region</span><span class="t27__lat"><span data-lang="es">23° S</span><span data-lang="en" hidden>23° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Cuál es la actividad cuaternaria de las fallas del antearco del norte de Chile?</span><span data-lang="en" hidden>What is the Quaternary activity of the faults in the northern Chile forearc?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Mapeo de escarpes y catastro de fallas</li><li>Vuelos de dron y modelos de elevación de escarpes</li><li>Edades morfológicas y tasas de deslizamiento</li><li>Escenarios de megathrust y cambios de esfuerzo (ΔCFS)</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Scarp mapping and fault inventory</li><li>Drone flights and scarp elevation models</li><li>Morphological ages and slip rates</li><li>Megathrust scenarios and stress changes (ΔCFS)</li></ol>
+                <p class="t27__tags"><span data-lang="es">Neotectónica, fotogrametría con dron, modelación CFS</span><span data-lang="en" hidden>Neotectonics, drone photogrammetry, CFS modelling</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">06</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Cañón submarino e inundación por tsunami en Isla Chañaral</span><span data-lang="en" hidden>Submarine canyon and tsunami inundation at Isla Chañaral</span></span><span class="t27__place"><span data-lang="es">Isla Chañaral y Caleta Chañaral de Aceituno, Atacama</span><span data-lang="en" hidden>Isla Chañaral and Caleta Chañaral de Aceituno, Atacama</span><span class="t27__lat"><span data-lang="es">29,03° S</span><span data-lang="en" hidden>29.03° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Cuál es el efecto de la presencia de un cañón submarino en cercanías de la Isla Chañaral de Aceituno y costa adyacente para los procesos de inundación por tsunami?</span><span data-lang="en" hidden>How does a submarine canyon near Isla Chañaral de Aceituno and the adjacent coast affect tsunami inundation?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Morfometría del cañón con batimetría nueva</li><li>Escenarios de terremoto tipo 1922</li><li>Simulaciones con y sin cañón (GeoClaw)</li><li>Mapas de inundación de la caleta</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Canyon morphometry from new bathymetry</li><li>1922-type earthquake scenarios</li><li>Simulations with and without the canyon (GeoClaw)</li><li>Inundation maps for the cove</li></ol>
+                <p class="t27__tags"><span data-lang="es">Tsunami, modelación numérica, geomorfología submarina</span><span data-lang="en" hidden>Tsunami, numerical modelling, submarine geomorphology</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">07</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Remociones en masa y aluviones en Colchane bajo El Niño y cambio climático</span><span data-lang="en" hidden>Landslides and debris flows in Colchane under El Niño and climate change</span></span><span class="t27__place"><span data-lang="es">Colchane, Región de Tarapacá</span><span data-lang="en" hidden>Colchane, Tarapacá Region</span><span class="t27__lat"><span data-lang="es">19,27° S</span><span data-lang="en" hidden>19.27° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Cuál es la susceptibilidad de remociones en masa y aluviones en la localidad de Colchane en contexto de cambio climático y fenómeno El Niño?</span><span data-lang="en" hidden>What is the landslide and debris-flow susceptibility of Colchane under climate change and El Niño?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Inventario con imágenes y conocimiento local</li><li>Susceptibilidad y propagación de flujos</li><li>Lluvia, umbrales y fases de El Niño</li><li>Trabajo con SENAPRED y el municipio</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Inventory from imagery and local knowledge</li><li>Susceptibility and flow runout</li><li>Rainfall, thresholds and El Niño phases</li><li>Work with SENAPRED and the municipality</li></ol>
+                <p class="t27__tags"><span data-lang="es">Aluviones, clima, altiplano</span><span data-lang="en" hidden>Debris flows, climate, altiplano</span></p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="t27__num">08</span><span class="t27__main"><span class="t27__title"><span data-lang="es">Tsunamis por desprendimiento de hielo en Base Prat, Antártica</span><span data-lang="en" hidden>Ice-calving tsunamis at Prat Base, Antarctica</span></span><span class="t27__place"><span data-lang="es">Bahía Chile, isla Greenwich, Antártica Chilena</span><span data-lang="en" hidden>Chile Bay, Greenwich Island, Chilean Antarctica</span><span class="t27__lat"><span data-lang="es">62,48° S</span><span data-lang="en" hidden>62.48° S</span></span></span></span><span class="t27__chev" aria-hidden="true"></span></summary>
+              <div class="t27__body">
+                <p class="t27__q"><span data-lang="es">¿Es posible generar un modelo conceptual metodológico para evaluar la susceptibilidad de amenaza de inundación por tsunami asociada a desprendimiento de hielo con enfoque a procesos de cambio climático global usando modelos numéricos simplificados?</span><span data-lang="en" hidden>Can a conceptual and methodological model be built to assess tsunami inundation susceptibility from ice calving under global climate change, using simplified numerical models?</span></p>
+                <ol class="t27__steps" data-lang="es"><li>Modelo conceptual: fuente, ola, propagación y ascenso</li><li>Frentes de hielo y desprendimientos con imágenes satelitales</li><li>Cadena de modelos simplificados contrastada con GeoClaw</li><li>Mapa de susceptibilidad y escenarios de retroceso glaciar</li></ol>
+                <ol class="t27__steps" data-lang="en" hidden><li>Conceptual model: source, wave, propagation and runup</li><li>Ice fronts and calving events from satellite imagery</li><li>Chain of simplified models checked against GeoClaw</li><li>Susceptibility map and glacier retreat scenarios</li></ol>
+                <p class="t27__tags"><span data-lang="es">Antártica, glaciares, tsunami, modelos numéricos</span><span data-lang="en" hidden>Antarctica, glaciers, tsunami, numerical models</span></p>
+              </div>
+            </details>
+          </li>
+      </ol>
+      <div class="thesis">
+        <div class="thesis__body">
+          <div class="thesis__block">
+            <h3><span data-lang="es">Cómo postular</span><span data-lang="en" hidden>How to apply</span></h3>
+            <p><span data-lang="es">Envía una carta de intenciones y un CV resumido a juan.gonzalez.c@unab.cl hasta el 30 de noviembre de 2026. Yo soy el profesor guía de los ocho temas.</span><span data-lang="en" hidden>Send a letter of intent and a short CV to juan.gonzalez.c@unab.cl by 30 November 2026. I supervise all eight topics.</span></p>
+            <a class="btn btn--quiet" href="mailto:juan.gonzalez.c@unab.cl?subject=Tesis%202027"><span data-lang="es">Escribir por una tesis</span><span data-lang="en" hidden>Email me about a thesis</span></a>
+          </div>
+          <div class="thesis__block">
+            <h3><span data-lang="es">A quién busco</span><span data-lang="en" hidden>Who I am looking for</span></h3>
+            <p><span data-lang="es">Estudiantes de Geología UNAB que harán su tesis en 2027. Saber programar ayuda: yo trabajo con MATLAB, GMT, bash y Python. Si estás en un magíster o doctorado y te interesa alguna de mis líneas, escríbeme igual.</span><span data-lang="en" hidden>UNAB Geology students writing their thesis in 2027. Programming helps: I work with MATLAB, GMT, bash and Python. If you are a master’s or PhD student interested in one of my research lines, write to me as well.</span></p>
+          </div>
+          <div class="thesis__block">
+            <h3><span data-lang="es">Tesis que he guiado</span><span data-lang="en" hidden>Theses I have guided</span></h3>
+            <p><span data-lang="es">Entre 2022 y 2026 he sido profesor guía de 26 tesis de pregrado en Geología UNAB y Oceanografía PUCV: 22 terminadas y 4 en curso. También he integrado 6 comisiones de magíster y de habilitación profesional. Algunas:</span><span data-lang="en" hidden>Between 2022 and 2026 I supervised 26 undergraduate theses in Geology at UNAB and Oceanography at PUCV: 22 completed and 4 ongoing. I have also served on 6 master’s and professional degree committees. A few (titles in Spanish):</span></p>
+            <ul class="topics past">
+              <li><span class="past__who"><span data-lang="es">Parada, C. (2026, en curso).</span><span data-lang="en" hidden>Parada, C. (2026, ongoing).</span></span> Evaluación del potencial de reactivación tectónica de la falla Quintay mediante análisis estructural, técnicas de aprendizaje no supervisado y criterios mecánicos de falla, Región de Valparaíso, Chile.</li>
+              <li><span class="past__who">Araneda, J. (2025).</span> Agrupamiento estocástico de escenarios sismo-tsunamigénicos en las costas de la zona norte de Chile y su impacto en el sector de Mejillones (19°S-25°S).</li>
+              <li><span class="past__who">Vega, M. (2025).</span> Efectos de la heterogeneidad del deslizamiento cosísmico en terremotos de subducción sobre el estado de esfuerzos en las fallas corticales Salar del Carmen y Naguayán.</li>
+              <li><span class="past__who">Campusano, Y. (2024).</span> Análisis de la amenaza tsunamigénica por flujos piroclásticos y de lahar en el lago Riñihue, región de Los Ríos, Chile.</li>
+              <li><span class="past__who">Díaz, C. (2023).</span> Validación de escenarios tsunamigénicos estocásticos: el caso del terremoto Mw 8.8 de Maule, Chile.</li>
+            </ul>
+          </div>        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto" aria-labelledby="h-con">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-con"><span data-lang="es">Contacto y asesoría técnica</span><span data-lang="en" hidden>Contact and technical advice</span></h2>
+      </div>
+      <div class="contact">
+        <dl class="meta">
+          <dt><span data-lang="es">Correo</span><span data-lang="en" hidden>Email</span></dt>
+          <dd><a href="mailto:juan.gonzalez.c@unab.cl">juan.gonzalez.c@unab.cl</a></dd>
+          <dt><span data-lang="es">Oficina</span><span data-lang="en" hidden>Office</span></dt>
+          <dd><span data-lang="es">Escuela de Ciencias de la Tierra, Universidad Andrés Bello, sede Viña del Mar</span><span data-lang="en" hidden>School of Earth Sciences, Universidad Andrés Bello, Viña del Mar campus</span></dd>
+          <dt><span data-lang="es">Perfiles</span><span data-lang="en" hidden>Profiles</span></dt>
+          <dd>
+            <ul class="profiles">
+              <li><a href="https://orcid.org/0000-0002-7200-1024">ORCID 0000-0002-7200-1024</a></li>
+              <li><a href="https://scholar.google.com/citations?user=qEjTpH8AAAAJ">Google Scholar</a></li>
+              <li><a href="https://www.scopus.com/authid/detail.uri?authorId=55450702300">Scopus 55450702300</a></li>
+            </ul>
+          </dd>
+        </dl>
+        <div class="advice">
+          <h3><span data-lang="es">Para instituciones públicas</span><span data-lang="en" hidden>For public agencies</span></h3>
+          <p data-lang="es">En el SHOA modelé las cartas de inundación por tsunami de Arica, Iquique, Mejillones, Quintero, Horcón, Ventana, Isla de Pascua, Aysén y Puerto Chacabuco. Como consultor modelé tsunamis para el Plan Regulador Metropolitano de Valparaíso, el Plan Regulador Comunal de Isla de Pascua y el embalse San Pedro de Colbún, donde el tsunami lo generaría un lahar.</p>
+          <p data-lang="en" hidden>At SHOA I modelled the tsunami inundation maps for Arica, Iquique, Mejillones, Quintero, Horcón, Ventana, Easter Island, Aysén and Puerto Chacabuco. As a consultant I modelled tsunamis for the Valparaíso Metropolitan Regulatory Plan, the Easter Island Communal Regulatory Plan and Colbún’s San Pedro reservoir, where the tsunami would come from a lahar.</p>
+          <p data-lang="es">Si su institución necesita evaluar una amenaza de tsunami, volcánica o de remoción en masa, escríbame indicando el territorio y la pregunta que necesita responder.</p>
+          <p data-lang="en" hidden>If your agency needs to assess a tsunami, volcanic or landslide hazard, write to me with the area and the question you need answered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__in">
+    <p><span data-lang="es">Juan F. González Carrasco, Escuela de Ciencias de la Tierra, Universidad Andrés Bello</span><span data-lang="en" hidden>Juan F. González Carrasco, School of Earth Sciences, Universidad Andrés Bello</span></p>
+    <p><span data-lang="es">Actualizado en noviembre de 2026</span><span data-lang="en" hidden>Updated November 2026</span></p>
+  </div>
+</footer>
+
+<script>
+{
+  const meta = {
+    es: { title: 'Juan F. González Carrasco', desc: 'Juan F. González Carrasco, profesor de la Universidad Andrés Bello e investigador adjunto de Cigiden R+: amenaza de tsunami, transferencia de esfuerzos a fallas corticales, remociones en masa, eventos en cascada y geología marina en Chile.', home: 'Juan F. González Carrasco, inicio', nav: 'Secciones' },
+    en: { title: 'Juan F. González Carrasco', desc: 'Juan F. González Carrasco, assistant professor at Universidad Andrés Bello and Cigiden R+ associate researcher: tsunami hazard, stress transfer to crustal faults, landslides, cascading events and marine geology in Chile.', home: 'Juan F. González Carrasco, home', nav: 'Sections' }
+  };
+  const buttons = document.querySelectorAll('.lang button');
+  const nodes = document.querySelectorAll('[data-lang]');
+  const setLang = (lang, store) => {
+    if (!meta[lang]) return;
+    document.documentElement.lang = lang;
+    nodes.forEach((n) => { n.toggleAttribute('hidden', n.dataset.lang !== lang); });
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.set === lang)));
+    document.title = meta[lang].title;
+    const d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute('content', meta[lang].desc);
+    document.querySelector('.wordmark').setAttribute('aria-label', meta[lang].home);
+    document.querySelector('.nav__links').setAttribute('aria-label', meta[lang].nav);
+    if (store) { try { localStorage.setItem('jfg-lang', lang); } catch (e) {} }
+  };
+  buttons.forEach((b) => b.addEventListener('click', () => setLang(b.dataset.set, true)));
+  let saved = null;
+  try { saved = localStorage.getItem('jfg-lang'); } catch (e) {}
+  if (saved && saved !== 'es') setLang(saved, false);
+}
+</script>
+</body>
+</html>
