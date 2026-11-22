@@ -146,6 +146,15 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
 .head h2 { font-size: var(--text-section); line-height: 1.08; max-width: 14ch; }
 .head__intro { font-size: var(--text-lead); line-height: 1.55; color: var(--color-ink-2); max-width: 52ch; padding-top: var(--space-xs); }
 
+/* consent banner */
+.consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-toast); background: var(--color-field); color: var(--color-field-ink); border-top: 1px solid var(--color-field-rule); }
+.consent__in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm) var(--space-xl); padding-block: var(--space-md); }
+.consent__text { max-width: 70ch; font-family: var(--font-label); font-size: var(--text-sm); line-height: 1.5; text-align: left; hyphens: manual; color: var(--color-field-ink); }
+.consent__actions { display: flex; gap: var(--space-sm); }
+.consent .lb-btn--primary { background: var(--color-field-ink); color: var(--color-field); border-color: var(--color-field-ink); }
+.linkbtn { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-decoration-color: var(--color-rule-strong); text-underline-offset: 0.2em; cursor: pointer; min-height: 24px; }
+.linkbtn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
 /* news */
 .feature { margin-top: var(--space-2xl); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: center; }
 .feature__text { display: grid; gap: var(--space-sm); max-width: 60ch; justify-items: start; }
@@ -288,6 +297,8 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .wordmark:hover { color: var(--color-accent-strong); }
   .poster:hover img { box-shadow: 0 0 0 1px var(--color-ink-2), 0 6px 18px color-mix(in oklch, var(--color-ink) 14%, transparent); }
   .lb-btn:hover { background: var(--color-field-2); }
+  .consent .lb-btn--primary:hover { background: var(--color-field-muted); border-color: var(--color-field-muted); }
+  .linkbtn:hover { text-decoration-color: var(--color-accent); }
   .pub__doi:hover, .contact a:hover, .head__intro a:hover { text-decoration-color: var(--color-accent); }
 }
 .wordmark { transition: color var(--dur-short) var(--ease-out); }
@@ -787,8 +798,19 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   <div class="container footer__in">
     <p><span data-lang="es">Juan F. González Carrasco, Escuela de Ciencias de la Tierra, Universidad Andrés Bello</span><span data-lang="en" hidden>Juan F. González Carrasco, School of Earth Sciences, Universidad Andrés Bello</span></p>
     <p><span data-lang="es">Actualizado en noviembre de 2026</span><span data-lang="en" hidden>Updated November 2026</span></p>
+    <p><button type="button" class="linkbtn" data-consent-open hidden><span data-lang="es">Preferencias de cookies</span><span data-lang="en" hidden>Cookie preferences</span></button></p>
   </div>
 </footer>
+<div class="consent" id="consent" role="region" aria-label="Cookies" hidden>
+  <div class="container consent__in">
+    <p class="consent__text"><span data-lang="es">Uso Google Analytics para saber cuántas personas visitan este sitio y qué secciones leen. Solo se activa si aceptas, y puedes cambiar tu decisión en el pie de página.</span><span data-lang="en" hidden>I use Google Analytics to count visits and see which sections people read. It only runs if you accept, and you can change your choice in the footer.</span></p>
+    <div class="consent__actions">
+      <button type="button" class="lb-btn" data-consent="denied"><span data-lang="es">Rechazar</span><span data-lang="en" hidden>Decline</span></button>
+      <button type="button" class="lb-btn lb-btn--primary" data-consent="granted"><span data-lang="es">Aceptar</span><span data-lang="en" hidden>Accept</span></button>
+    </div>
+  </div>
+</div>
+
 
 <script>
 {
@@ -838,6 +860,47 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
     });
   }
+  /* Google Analytics: only on the GitHub site, only after consent */
+  const GA_ID = 'G-2EPZ7VCXCK';
+  const ON_SITE = /(^|\.)tsunamigenico\.github\.io$/.test(location.hostname);
+  const banner = document.getElementById('consent');
+  const openBtn = document.querySelector('[data-consent-open]');
+  let gaLoaded = false;
+  const getConsent = () => { try { return localStorage.getItem('jfg-consent'); } catch (e) { return null; } };
+  const loadGA = () => {
+    if (gaLoaded || !ON_SITE) return;
+    gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+    const sc = document.createElement('script');
+    sc.async = true; sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(sc);
+  };
+  const track = (name, params) => { if (gaLoaded && window.gtag) window.gtag('event', name, params || {}); };
+  if (ON_SITE && banner) {
+    if (openBtn) { openBtn.hidden = false; openBtn.addEventListener('click', () => { banner.hidden = false; banner.querySelector('[data-consent]').focus(); }); }
+    const choice = getConsent();
+    if (choice === 'granted') loadGA(); else if (choice !== 'denied') banner.hidden = false;
+    banner.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-consent]'); if (!b) return;
+      const v = b.dataset.consent;
+      try { localStorage.setItem('jfg-consent', v); } catch (err) {}
+      banner.hidden = true;
+      if (v === 'granted') loadGA();
+      else if (gaLoaded) { location.reload(); }
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a, button'); if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (a.matches('.map__p27')) track('map_topic', { topic: (a.querySelector('title') || {}).textContent });
+    else if (href === '#tesis') track('cta_tesis', { location: a.closest('section') ? a.closest('section').id : 'nav' });
+    else if (href.startsWith('mailto:')) track('contact_email', { subject: href.includes('subject=') ? 'tesis' : 'general' });
+    else if (a.matches('[data-poster]')) track('poster_open', { poster: a.dataset.es });
+    else if (a.matches('.lang button')) track('lang_switch', { lang: a.dataset.set });
+  });
 }
 </script>
 </body>
