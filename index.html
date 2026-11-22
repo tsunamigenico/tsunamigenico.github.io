@@ -155,6 +155,16 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
 .linkbtn { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-decoration-color: var(--color-rule-strong); text-underline-offset: 0.2em; cursor: pointer; min-height: 24px; }
 .linkbtn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 
+/* press */
+.press { margin-top: var(--space-2xl); border-top: 1px solid var(--color-rule); }
+.press__item { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+.press__meta { display: grid; gap: var(--space-3xs); align-content: start; font-family: var(--font-label); font-size: var(--text-sm); }
+.press__outlet { color: var(--color-ink); font-weight: 600; }
+.press__date { color: var(--color-muted); }
+.press__body { display: grid; gap: var(--space-xs); max-width: 64ch; }
+.press__title { font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); line-height: 1.3; letter-spacing: -0.01em; color: var(--color-ink); text-decoration-color: var(--color-rule-strong); text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.press__sum { color: var(--color-ink-2); text-align: justify; hyphens: auto; }
+
 /* news */
 .feature { margin-top: var(--space-2xl); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: center; }
 .feature__text { display: grid; gap: var(--space-sm); max-width: 60ch; justify-items: start; }
@@ -295,6 +305,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .band .btn--quiet:hover { background: var(--color-field-2); border-color: var(--color-field-ink); }
   .t27 summary:hover .t27__title { color: var(--color-field-accent); }
   .wordmark:hover { color: var(--color-accent-strong); }
+  .press__title:hover { text-decoration-color: var(--color-accent); }
   .poster:hover img { box-shadow: 0 0 0 1px var(--color-ink-2), 0 6px 18px color-mix(in oklch, var(--color-ink) 14%, transparent); }
   .lb-btn:hover { background: var(--color-field-2); }
   .consent .lb-btn--primary:hover { background: var(--color-field-muted); border-color: var(--color-field-muted); }
@@ -315,6 +326,8 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .line__where { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: var(--space-sm); }
   .courses, .project, .cv__row, .cv__what { grid-template-columns: minmax(0, 1fr); }
   .feature, .newslist { grid-template-columns: minmax(0, 1fr); }
+  .press__item { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+  .press__meta { grid-auto-flow: column; justify-content: start; gap: var(--space-sm); }
   .field { display: flex; gap: var(--space-sm); align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
   .field__ph { flex: 0 0 auto; scroll-snap-align: start; }
   .field__ph img { height: 190px; }
@@ -357,6 +370,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
       <a href="#investigacion"><span data-lang="es">Investigación</span><span data-lang="en" hidden>Research</span></a>
       <a href="#proyectos"><span data-lang="es">Proyectos</span><span data-lang="en" hidden>Projects</span></a>
       <a href="#publicaciones"><span data-lang="es">Publicaciones</span><span data-lang="en" hidden>Publications</span></a>
+      <a href="#prensa"><span data-lang="es">Prensa</span><span data-lang="en" hidden>Press</span></a>
       <a href="#docencia"><span data-lang="es">Docencia</span><span data-lang="en" hidden>Teaching</span></a>
       <a href="#tesis"><span data-lang="es">Tesis</span><span data-lang="en" hidden>Theses</span></a>
       <a href="#contacto"><span data-lang="es">Contacto</span><span data-lang="en" hidden>Contact</span></a>
@@ -605,6 +619,22 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
           <li class="pub"><span class="pub__authors">Aránguiz, R., M. Esteban, H. Takagi, <span class="me">J. González</span> <span data-lang="es">y otros</span><span data-lang="en" hidden>et al.</span> (2020).</span> <span class="pub__title">The 2018 Sulawesi tsunami in Palu city as a result of several landslides and coseismic tsunamis.</span> <span class="pub__venue"><i>Coastal Engineering Journal</i> 62(4), 445-459.</span> <a class="pub__doi" href="https://doi.org/10.1080/21664250.2020.1780719">doi.org/10.1080/21664250.2020.1780719</a></li>
         </ol>
       </div>
+    </div>
+  </section>
+
+  <section class="section section--rule" id="prensa" aria-labelledby="h-pre">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-pre"><span data-lang="es">En prensa</span><span data-lang="en" hidden>In the press</span></h2>
+        <p class="head__intro"><span data-lang="es">Notas en medios y en el sitio de Cigiden sobre mi trabajo, de la más reciente a la más antigua.</span><span data-lang="en" hidden>Articles in the media and on the Cigiden website about my work, newest first.</span></p>
+      </div>
+      <ol class="press">
+          <li class="press__item"><span class="press__meta"><span class="press__outlet">El Desconcierto</span><span class="press__date"><span data-lang="es">12 de enero de 2025</span><span data-lang="en" hidden>12 January 2025</span></span></span><span class="press__body"><a class="press__title" href="https://eldesconcierto.cl/2025/01/12/experto-zona-del-norte-es-altamente-activa-con-opcion-de-terremotos-y-tsunamis-mayores">“Experto: Zona del norte es altamente activa, con opción de terremotos y tsunamis mayores”</a><span class="press__sum"><span data-lang="es">Entrevista como académico de la UNAB sobre la sismicidad del norte de Chile y por qué una secuencia de sismos no permite pronosticar un terremoto.</span><span data-lang="en" hidden>Interview as a UNAB academic on seismicity in northern Chile and why an earthquake sequence cannot be used to forecast a large event.</span></span></span></li>
+          <li class="press__item"><span class="press__meta"><span class="press__outlet">Cigiden</span><span class="press__date"><span data-lang="es">22 de enero de 2021</span><span data-lang="en" hidden>22 January 2021</span></span></span><span class="press__body"><a class="press__title" href="https://cigidenweb.ing.uc.cl/unesco-launches-protocol-to-address-tsunami-warnings-during-the-covid-19-pandemic">“UNESCO launches protocol to address tsunami warnings during the Covid-19 pandemic”</a><span class="press__sum"><span data-lang="es">Evacuación por tsunami durante la pandemia y la propuesta de un sistema de alerta redundante fuera de la zona central.</span><span data-lang="en" hidden>Tsunami evacuation during the pandemic and a proposal for a redundant warning system outside central Chile.</span></span></span></li>
+          <li class="press__item"><span class="press__meta"><span class="press__outlet">Cigiden</span></span><span class="press__body"><a class="press__title" href="https://cigidenweb.ing.uc.cl/oceanografo-e-investigador-cigiden-desarrolla-modelo-de-estimacion-de-tsunamis-inspirado-en-evento-de-iquique-de-2014">“Oceanógrafo e investigador CIGIDEN desarrolla modelo de estimación de tsunamis inspirado en evento de Iquique de 2014”</a><span class="press__sum"><span data-lang="es">Nota sobre mi charla en las Geocharlas T3 acerca de patrones de ruptura estocásticos para estimar amenaza de tsunami.</span><span data-lang="en" hidden>Article on my Geocharlas T3 talk about stochastic rupture patterns for tsunami hazard assessment.</span></span></span></li>
+          <li class="press__item"><span class="press__meta"><span class="press__outlet">Cigiden</span></span><span class="press__body"><a class="press__title" href="https://cigidenweb.ing.uc.cl/estudio-afirma-que-frente-a-un-terremoto-y-tsunami-similar-al-27f-el-70-de-la-bahia-de-mejillones-seria-inundada">“Estudio afirma que frente a un terremoto y tsunami similar al 27F, el 70 % de la bahía de Mejillones sería inundada”</a><span class="press__sum"><span data-lang="es">Resultados de mi tesis doctoral sobre amenaza de tsunami en las ciudades costeras entre Arica y Antofagasta.</span><span data-lang="en" hidden>Findings of my doctoral thesis on tsunami hazard for coastal cities between Arica and Antofagasta.</span></span></span></li>
+          <li class="press__item"><span class="press__meta"><span class="press__outlet">Cigiden</span></span><span class="press__body"><a class="press__title" href="https://cigidenweb.ing.uc.cl/?p=22191"><span data-lang="es">Reunión experta sobre fuentes de tsunami en la frontera Chile-Perú</span><span data-lang="en" hidden>Expert meeting on tsunami sources at the Chile-Peru border</span></a><span class="press__sum"><span data-lang="es">Participación, junto a Patricio Catalán y Rafael Aránguiz, en una reunión organizada por la Universidad de Tarapacá con la UNESCO.</span><span data-lang="en" hidden>Participation, with Patricio Catalán and Rafael Aránguiz, in a meeting organised by Universidad de Tarapacá with UNESCO.</span></span></span></li>
+      </ol>
     </div>
   </section>
 
