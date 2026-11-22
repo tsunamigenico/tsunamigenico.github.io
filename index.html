@@ -84,7 +84,7 @@ button { font: inherit; }
 .nav__links a:active { background: var(--color-paper-3); }
 
 /* language switch */
-.lang { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; padding: var(--space-3xs); border: 1px solid var(--color-rule-strong); border-radius: var(--radius-pill); font-family: var(--font-label); font-size: var(--text-sm); }
+.lang { position: relative; flex: none; display: inline-grid; grid-template-columns: 1fr 1fr; padding: var(--space-3xs); border: 1px solid var(--color-rule-strong); border-radius: var(--radius-pill); font-family: var(--font-label); font-size: var(--text-sm); }
 .lang::before { content: ""; position: absolute; top: var(--space-3xs); bottom: var(--space-3xs); left: var(--space-3xs); width: calc(50% - var(--space-3xs)); border-radius: var(--radius-pill); background: var(--color-paper-3); transition: transform var(--dur-switch) var(--ease-out); }
 html[lang="en"] .lang::before { transform: translateX(100%); }
 .lang button { position: relative; min-height: 40px; min-width: 44px; padding: 0 var(--space-sm); border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-ink-2); cursor: pointer; white-space: nowrap; transition: color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
@@ -154,6 +154,24 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
 .consent .lb-btn--primary { background: var(--color-field-ink); color: var(--color-field); border-color: var(--color-field-ink); }
 .linkbtn { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-decoration-color: var(--color-rule-strong); text-underline-offset: 0.2em; cursor: pointer; min-height: 24px; }
 .linkbtn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* talks */
+.talks { margin-top: var(--space-2xl); border-top: 1px solid var(--color-rule); }
+.talks__year { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-block: var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+.talks__year h3 { font-size: var(--text-title); line-height: 1.2; font-variant-numeric: tabular-nums; }
+.talks__list { display: grid; gap: var(--space-md); max-width: 72ch; }
+.talk { line-height: 1.5; }
+.talk__title { color: var(--color-ink); }
+.talk__event { color: var(--color-ink-2); }
+.talk__authors { display: block; margin-top: var(--space-3xs); font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-muted); text-align: left; hyphens: manual; }
+.talk__authors .me { color: var(--color-ink-2); }
+.talk__link { display: inline-block; margin-top: var(--space-3xs); font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-accent-strong); text-decoration-color: var(--color-rule-strong); text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.talks__more > summary { list-style: none; display: inline-flex; align-items: center; gap: var(--space-sm); min-height: 44px; margin-block: var(--space-md); padding: 0 var(--space-md); border: 1px solid var(--color-rule-strong); border-radius: var(--radius); font-family: var(--font-label); font-size: var(--text-sm); font-weight: 600; color: var(--color-ink); cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.talks__more > summary::-webkit-details-marker { display: none; }
+.talks__more > summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.talks__chev { width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform var(--dur-short) var(--ease-out); }
+.talks__more[open] .talks__chev { transform: rotate(225deg) translateY(-2px); }
+.talks__more[open] > summary { margin-bottom: 0; }
 
 /* press */
 .press { margin-top: var(--space-2xl); border-top: 1px solid var(--color-rule); }
@@ -306,6 +324,8 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .t27 summary:hover .t27__title { color: var(--color-field-accent); }
   .wordmark:hover { color: var(--color-accent-strong); }
   .press__title:hover { text-decoration-color: var(--color-accent); }
+  .talk__link:hover { text-decoration-color: var(--color-accent); }
+  .talks__more > summary:hover { background: var(--color-paper-2); }
   .poster:hover img { box-shadow: 0 0 0 1px var(--color-ink-2), 0 6px 18px color-mix(in oklch, var(--color-ink) 14%, transparent); }
   .lb-btn:hover { background: var(--color-field-2); }
   .consent .lb-btn--primary:hover { background: var(--color-field-muted); border-color: var(--color-field-muted); }
@@ -327,6 +347,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .courses, .project, .cv__row, .cv__what { grid-template-columns: minmax(0, 1fr); }
   .feature, .newslist { grid-template-columns: minmax(0, 1fr); }
   .press__item { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+  .talks__year { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
   .press__meta { grid-auto-flow: column; justify-content: start; gap: var(--space-sm); }
   .field { display: flex; gap: var(--space-sm); align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
   .field__ph { flex: 0 0 auto; scroll-snap-align: start; }
@@ -340,11 +361,17 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .project { gap: var(--space-md); }
   .teach-note { margin-left: 0; }
 }
-@media (max-width: 48rem) {
+@media (max-width: 80rem) {
   .nav__in { flex-wrap: wrap; row-gap: 0; padding-top: var(--space-2xs); }
-  .nav__links { order: 3; width: 100%; flex-wrap: wrap; column-gap: 0; margin-inline: calc(-1 * var(--space-xs)); padding-bottom: var(--space-2xs); }
-  .nav__links a { font-size: var(--text-md); }
+  .nav__links { order: 3; width: 100%; flex-wrap: wrap; column-gap: 0; margin-inline: calc(-1 * var(--space-xs)); }
+  .nav__links a { min-height: 40px; }
+  html { scroll-padding-top: 128px; }
+}
+@media (max-width: 48rem) {
+  .nav__links { padding-bottom: var(--space-2xs); }
+  .nav__links a { font-size: var(--text-md); min-height: 44px; }
   .nav { position: static; }
+  html { scroll-padding-top: var(--space-md); }
 }
 @media (max-width: 40rem) {
   :root { --gutter: 16px; --section-gap-s: 64px; --text-md: 1.0625rem; }
@@ -353,7 +380,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .hero h1 { max-width: 11ch; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lang::before, .lang button, .btn, .t27__chev { transition-property: color, background-color, border-color; }
+  .lang::before, .lang button, .btn, .t27__chev, .talks__chev { transition-property: color, background-color, border-color; }
   .poster:active img, .lb-btn:active { transform: none; }
   .btn:active, .lang button:active { transform: none; }
 }
@@ -370,6 +397,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
       <a href="#investigacion"><span data-lang="es">Investigación</span><span data-lang="en" hidden>Research</span></a>
       <a href="#proyectos"><span data-lang="es">Proyectos</span><span data-lang="en" hidden>Projects</span></a>
       <a href="#publicaciones"><span data-lang="es">Publicaciones</span><span data-lang="en" hidden>Publications</span></a>
+      <a href="#congresos"><span data-lang="es">Congresos</span><span data-lang="en" hidden>Talks</span></a>
       <a href="#prensa"><span data-lang="es">Prensa</span><span data-lang="en" hidden>Press</span></a>
       <a href="#docencia"><span data-lang="es">Docencia</span><span data-lang="en" hidden>Teaching</span></a>
       <a href="#tesis"><span data-lang="es">Tesis</span><span data-lang="en" hidden>Theses</span></a>
@@ -618,6 +646,104 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
           <li class="pub"><span class="pub__authors">Becerra, I., R. Aránguiz, <span class="me">J. González</span> <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> R. Benavente (2020).</span> <span class="pub__title">An improvement of tsunami hazard analysis in Central Chile based on stochastic rupture scenarios.</span> <span class="pub__venue"><i>Coastal Engineering Journal</i> 62(4), 473-488.</span> <a class="pub__doi" href="https://doi.org/10.1080/21664250.2020.1812943">doi.org/10.1080/21664250.2020.1812943</a></li>
           <li class="pub"><span class="pub__authors">Aránguiz, R., M. Esteban, H. Takagi, <span class="me">J. González</span> <span data-lang="es">y otros</span><span data-lang="en" hidden>et al.</span> (2020).</span> <span class="pub__title">The 2018 Sulawesi tsunami in Palu city as a result of several landslides and coseismic tsunamis.</span> <span class="pub__venue"><i>Coastal Engineering Journal</i> 62(4), 445-459.</span> <a class="pub__doi" href="https://doi.org/10.1080/21664250.2020.1780719">doi.org/10.1080/21664250.2020.1780719</a></li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--rule" id="congresos" aria-labelledby="h-con2">
+    <div class="container">
+      <div class="head">
+        <h2 id="h-con2"><span data-lang="es">Congresos, seminarios y talleres</span><span data-lang="en" hidden>Conferences, seminars and workshops</span></h2>
+        <p class="head__intro"><span data-lang="es">24 presentaciones desde 2014, siete de ellas en el AGU Fall Meeting. Los títulos van en el idioma en que se presentaron.</span><span data-lang="en" hidden>24 presentations since 2014, seven of them at the AGU Fall Meeting. Titles are given in the language they were presented in.</span></p>
+      </div>
+      <div class="talks">
+        <div class="talks__year">
+          <h3>2026</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title"><span data-lang="es">Charla sobre amenazas en cascada: El Niño, lluvias extremas y aluviones en Iquique y Alto Hospicio.</span><span data-lang="en" hidden>Talk on cascading hazards: El Niño, extreme rainfall and debris flows in Iquique and Alto Hospicio.</span></span> <span class="talk__event"><span data-lang="es">Seminario de SENAPRED Tarapacá sobre gestión del riesgo de desastres y fenómeno El Niño, octubre de 2026.</span><span data-lang="en" hidden>SENAPRED Tarapacá seminar on disaster risk management and El Niño, October 2026.</span></span> <span class="talk__authors"><span class="me">González, J.</span></span></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2024</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Evaluación de la evacuación por un evento tsunamigénico para naves en el terminal marítimo Mejillones, región de Antofagasta, Chile.</span> <span class="talk__event">VII Congreso de Oceanografía Física, Meteorología y Clima del Pacífico Sur Oriental, Iquique, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span>, Barahona, A. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Wall, S.</span></li>
+            <li class="talk"><span class="talk__title">Evaluando el potencial tsunamigénico de las fallas corticales outer rise en la zona norte de Chile.</span> <span class="talk__event">I Simposio de Fallas Activas y sus Riesgos Geológicos en Chile, Santiago, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span>, Carvajal, M. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Cortés, J.</span></li>
+            <li class="talk"><span class="talk__title">A cascading story in a subduction zone: how mega-earthquakes influence upper-plate faults triggering.</span> <span class="talk__event">VI Coloquio sobre Señales Geofísicas de Terremotos y Volcanes, Concepción, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span> <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Cortés, J.</span></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2023</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Tsunamigenic hazard in enclosed water bodies: generation by laharic/pyroclastic flow in the Mocho-Choshuenco Volcanic Complex (CVMCh) outflow in Lake Riñihue, Chile.</span> <span class="talk__event">XVI Congreso Geológico Chileno, Santiago, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span>, Chinga, I., Esquivel, A., Cortés, J., Aguilera, F., Serey, A. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> González, R.</span></li>
+            <li class="talk"><span class="talk__title">New approaches for tsunami hazard estimation: numerical modeling and machine learning.</span> <span class="talk__event">XVI Congreso Geológico Chileno, Santiago, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span>, Bahamondes, D., Bosco, M.F. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Castro, C.</span></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2022</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Avances recientes en la estimación de amenaza de tsunami: aproximación determinística-estocástica multiescenario en la zona de subducción de Nazca-Sudamérica.</span> <span class="talk__event">6.º Congreso de Oceanografía Física, Meteorología y Clima del Pacífico Sur Oriental, Puerto Montt, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span>, Aránguiz, R., González, G., Shrivastava, M.N., Benavente, R., Bahamondes, D., Bosco, M.F. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Castro, C.</span></li>
+            <li class="talk"><span class="talk__title">Análisis de series de tiempo de nivel del mar en la bahía de Coquimbo (71°20'W; 29°57'S) a partir de escenarios tsunamigénicos estocásticos de origen local.</span> <span class="talk__event">6.º Congreso de Oceanografía Física, Meteorología y Clima del Pacífico Sur Oriental, Puerto Montt, Chile.</span> <span class="talk__authors">Castro, C., <span class="me">González, J.</span>, Díaz, J. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Aránguiz, R.</span></li>
+            <li class="talk"><span class="talk__title">Recent advances in tsunami hazard assessment: deterministic-stochastic multi-scenario approach in Nazca-South America subduction zone (15°S to 38°S).</span> <span class="talk__event">LACSC 4th Assembly, Quito, Ecuador. Abstract 303.</span> <span class="talk__authors"><span class="me">González, J.</span>, Aránguiz, R., González, G., Shrivastava, M.N., Benavente, R., Bahamondes, D., Bosco, M.F. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Castro, C.</span></li>
+            <li class="talk"><span class="talk__title">Tonga volcanic eruption 2022 and associated tsunami detection with the GPS derived TEC perturbation.</span> <span class="talk__event">LACSC 4th Assembly, Quito, Ecuador. Abstract 302.</span> <span class="talk__authors">Shrivastava, M.N., Maurya, A.K., <span class="me">González, J.</span>, Sunil, A.S., Nambiathody, A., Sánchez, F., Sunil, P.S., Vijith, V. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> González, G.</span></li>
+            <li class="talk"><span class="talk__title">Linking upper-plate fault reactivation with the megathrust earthquake cycle: the case of the northern Chile outer forearc (19°S to 23°S).</span> <span class="talk__event">LACSC 4th Assembly, Quito, Ecuador. Abstract 300.</span> <span class="talk__authors">Cortés-Aranda, J., <span class="me">González, J.</span>, Molina, D., Tassara, A., Astudillo-Sotomayor, L., Álvarez-Amado, F. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> González, R.</span></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2021</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Assessment of causative relationships between earthquake source and tsunami intensity measurements using machine learning techniques: a study case in southern Peru and northern Chile seismic gap (15°S to 30°S).</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2021, Nueva Orleans, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2021, New Orleans, USA.</span></span> <span class="talk__authors"><span class="me">González, J.</span>, Aránguiz, R., González, G. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Benavente, R.</span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2021AGUFMNH25B0568G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+            <li class="talk"><span class="talk__title">Tsunamis in the seismic gaps of southern Peru and northern Chile (17°S to 30°S): multi-scenario deterministic analysis for the hazard assessment in coastal cities.</span> <span class="talk__event">4th Colloquium on Geophysical Signatures of Earthquakes and Volcanoes (GSEV), Universidad de Concepción, Concepción, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span>, Aránguiz, R., González, G. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Zamora, N.</span></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2020</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Non-uniform rupture patterns of megathrust earthquakes scenarios: an upgrading of tsunami hazard assessment in Mejillones, northern Chile.</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2020, San Francisco, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2020, San Francisco, USA.</span></span> <span class="talk__authors"><span class="me">González, J.</span>, González, G., Aránguiz, R., Benavente, R., Melgar, D. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Zamora-Sauma, N.</span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2020AGUFMNH0140013G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+          </ol>
+        </div>
+        <details class="talks__more">
+          <summary><span class="talks__chev" aria-hidden="true"></span><span data-lang="es">Ver las 10 presentaciones de 2014 a 2019</span><span data-lang="en" hidden>Show the 10 presentations from 2014 to 2019</span></summary>
+        <div class="talks__year">
+          <h3>2019</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Estimación de amenaza de desastres en la región de Arica y Parinacota: la tríada terremotos, tsunamis y volcanes.</span> <span class="talk__event">Seminario Regional de Ciencia y Tecnología Resiliencia y Gestión de Desastres Naturales, CONICYT, Arica, Chile.</span> <span class="talk__authors"><span class="me">González, J.</span></span></li>
+            <li class="talk"><span class="talk__title">Earthquake scenarios for active seismic gaps: a hybrid deterministic and stochastic approach for tsunami hazard assessment.</span> <span class="talk__event"><span data-lang="es">Project Definition Workshop on M9 Disaster Science, University of Washington, Seattle, EE.&nbsp;UU.</span><span data-lang="en" hidden>Project Definition Workshop on M9 Disaster Science, University of Washington, Seattle, USA.</span></span> <span class="talk__authors"><span class="me">González, J.</span>, González, G., Aránguiz, R., Zamora, N. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Melgar, D.</span> <a class="talk__link" href="https://depts.washington.edu/ptha/M9-Disaster-Science-Workshop-2019/"><span data-lang="es">Sitio del taller</span><span data-lang="en" hidden>Workshop site</span></a></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2018</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Global historical tsunami hazards: Pacific, Caribbean, Mediterranean and Indian oceans and probabilistic tsunami hazard.</span> <span class="talk__event">ITIC Training Programme Hawaii in Chile, Valparaíso, Chile.</span> <span class="talk__authors"><span class="me">González-Carrasco, J.F.</span></span></li>
+            <li class="talk"><span class="talk__title">Earthquake scenarios for Peru-Chile seismic gap: deterministic and stochastic hybrid approach for hazard assessment.</span> <span class="talk__event">XV Congreso Geológico Chileno, Concepción, Chile.</span> <span class="talk__authors"><span class="me">González-Carrasco, J.F.</span>, González, G., Aránguiz, R., Yáñez, G.A., Melgar, D., Salazar, P., Shrivastava, M.N., Das, R., Catalán, P.A., Zamora, N. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Cienfuegos, R.</span></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2017</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Far-field tsunami of 2017 Mw 8.1 Tehuantepec, Mexico earthquake recorded by Chilean tide gauge network: implications for tsunami warning systems.</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2017, Nueva Orleans, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2017, New Orleans, USA.</span></span> <span class="talk__authors"><span class="me">González-Carrasco, J.F.</span>, Benavente, R., Zelaya, C., Núñez, C. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> González, G.</span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2017AGUFM.S33G2942G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+            <li class="talk"><span class="talk__title">Tsunamigenic scenarios for southern Peru and northern Chile seismic gap: deterministic and probabilistic hybrid approach for hazard assessment.</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2017, Nueva Orleans, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2017, New Orleans, USA.</span></span> <span class="talk__authors"><span class="me">González-Carrasco, J.F.</span>, González, G., Aránguiz, R., Yáñez, G.A., Melgar, D., Salazar, P., Shrivastava, M.N., Das, R., Catalán, P.A. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Cienfuegos, R.</span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2017AGUFMNH23A0247G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2016</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Influence of seismic source geometry over hydrodynamic processes on tsunamigenic events.</span> <span class="talk__event">Asamblea Regional LACSC 2016, San José, Costa Rica.</span> <span class="talk__authors"><span class="me">González, J.</span>, Aránguiz, R., González, G., Yagi, Y., Okuwaki, R. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Núñez, C.</span></li>
+            <li class="talk"><span class="talk__title">Deterministic seismogenic scenarios based on asperities spatial distribution to assess tsunami hazard on northern Chile (18°S to 24°S).</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2016, San Francisco, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2016, San Francisco, USA.</span></span> <span class="talk__authors"><span class="me">González-Carrasco, J.</span></span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2016AGUFMNH43A1825G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2015</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Analysis of geodetic interseismic coupling models to estimate tsunami inundation and runup: a study case of Maule seismic gap, Chile.</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2015, San Francisco, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2015, San Francisco, USA.</span></span> <span class="talk__authors"><span class="me">González-Carrasco, J.F.</span>, González, G., Aránguiz, R., Catalán, P.A., Cienfuegos, R., Urrutia, A., Shrivastava, M.N., Yagi, Y. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> Moreno, M.</span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2015AGUFMNH23C1893G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+          </ol>
+        </div>
+        <div class="talks__year">
+          <h3>2014</h3>
+          <ol class="talks__list">
+            <li class="talk"><span class="talk__title">Assessment of heterogeneous slip distribution effect on tsunamigenic hydrodynamic processes generated by the 2014 Pisagua, Chile earthquake.</span> <span class="talk__event"><span data-lang="es">AGU Fall Meeting 2014, San Francisco, EE.&nbsp;UU.</span><span data-lang="en" hidden>AGU Fall Meeting 2014, San Francisco, USA.</span></span> <span class="talk__authors"><span class="me">González-Carrasco, J.F.</span>, Zamora-Sauma, N., Núñez, C., Aránguiz, R., Babeyko, A. <span data-lang="es">y</span><span data-lang="en" hidden>&amp;</span> González, G.</span> <a class="talk__link" href="https://ui.adsabs.harvard.edu/abs/2014AGUFM.S31D4451G/abstract"><span data-lang="es">Resumen en ADS</span><span data-lang="en" hidden>Abstract on ADS</span></a></li>
+          </ol>
+        </div>
+        </details>
       </div>
     </div>
   </section>
