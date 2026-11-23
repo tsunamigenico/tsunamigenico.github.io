@@ -254,9 +254,9 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
 .pub__doi { display: inline-block; font-family: var(--font-label); font-size: var(--text-sm); color: var(--color-accent-strong); text-decoration-color: var(--color-rule); overflow-wrap: anywhere; transition: text-decoration-color var(--dur-short) var(--ease-out); }
 .fill { padding: 0 0.25em; border: 1px dashed color-mix(in oklch, var(--color-muted) 70%, transparent); border-radius: 3px; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
-.pubs__extra { margin-top: var(--space-xl); }
+.pubs__extra { margin-top: var(--space-xl); grid-column: 1 / -1; }
 .pubs__extra h3 { font-size: var(--text-title); line-height: 1.25; }
-.pubs__extra ul { margin-top: var(--space-sm); border-top: 1px solid var(--color-rule); }
+.pubs__extra ul { margin-top: var(--space-sm); border-top: 1px solid var(--color-rule); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gap-columns); }
 .pubs__extra li { padding-block: var(--space-md); border-bottom: 1px solid var(--color-rule); line-height: 1.55; }
 
 /* teaching */
@@ -350,7 +350,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .t27__lat { display: block; margin-left: 0; }
   .line { gap: var(--space-sm); }
   .line__where { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: var(--space-sm); }
-  .courses, .project, .cv__row, .cv__what { grid-template-columns: minmax(0, 1fr); }
+  .courses, .project, .cv__row, .cv__what, .pubs__extra ul { grid-template-columns: minmax(0, 1fr); }
   .feature, .newslist { grid-template-columns: minmax(0, 1fr); }
   .press__item { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
   .talks__year { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
