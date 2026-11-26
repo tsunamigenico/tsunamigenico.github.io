@@ -25,7 +25,7 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --dur-micro: 140ms; --dur-short: 180ms; --dur-switch: 220ms;
   --container: 1280px; --gutter: 64px; --gap-columns: 40px; --section-gap: 144px; --section-gap-s: 120px;
-  --z-sticky-nav: 300; --z-toast: 500;
+  --z-sticky-nav: 300; --z-totop: 400; --z-toast: 500;
 
   --color-paper: oklch(96% 0.011 85);
   --color-paper-2: oklch(93.5% 0.014 85);
@@ -37,7 +37,7 @@
   --color-rule-strong: oklch(58% 0.03 60);
   --color-accent: oklch(70% 0.19 40);
   --color-accent-strong: oklch(46% 0.13 42);
-  --color-accent-ink: oklch(18% 0.006 60); --color-accent-hover: oklch(64% 0.19 40);
+  --color-accent-ink: oklch(18% 0.006 60); --color-accent-hover: oklch(64% 0.19 40); --shadow-totop: 0 1px 2px oklch(18% 0.006 60 / 0.12), 0 10px 24px -12px oklch(18% 0.006 60 / 0.45);
   --color-focus: oklch(60% 0.19 40);
   --color-p27: oklch(50% 0.2 22);
   --color-field: oklch(20% 0.008 60);
@@ -394,6 +394,20 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
   .btn:active, .lang button:active { transform: none; }
 }
 .btn:hover { background: var(--color-accent-hover); }
+
+/* back to top */
+.totop { position: fixed; right: var(--space-lg); bottom: var(--space-lg); z-index: var(--z-totop); display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: 0 var(--space-md) 0 var(--space-sm); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--color-paper); font-family: var(--font-label); font-size: var(--text-sm); font-weight: 500; text-decoration: none; box-shadow: var(--shadow-totop); transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out), visibility 0s linear 0s, background-color var(--dur-micro) ease; }
+.totop:hover { background: var(--color-ink-2); }
+.totop:active { transform: scale(0.97); }
+.totop:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; transition: none; }
+.js .totop[data-off] { opacity: 0; transform: translateY(8px); visibility: hidden; pointer-events: none; transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out), visibility 0s linear var(--dur-short); }
+@media (max-width: 48rem) {
+  .totop { right: var(--space-md); bottom: var(--space-md); width: 44px; padding: 0; justify-content: center; }
+  .totop__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) { .totop, .js .totop[data-off] { transition: none; } }
+@media print { .totop { display: none; } }
 </style>
 </head>
 <body>
@@ -1077,6 +1091,7 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
     <p><button type="button" class="linkbtn" data-consent-open hidden><span data-lang="es">Preferencias de cookies</span><span data-lang="en" hidden>Cookie preferences</span></button></p>
   </div>
 </footer>
+<a class="totop" href="#top" data-totop><svg class="totop__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="totop__label"><span data-lang="es">Volver al inicio</span><span data-lang="en" hidden>Back to top</span></span></a>
 <div class="consent" id="consent" role="region" aria-label="Cookies" hidden>
   <div class="container consent__in">
     <p class="consent__text"><span data-lang="es">Uso Google Analytics para saber cuántas personas visitan este sitio y qué secciones leen. Solo se activa si aceptas, y puedes cambiar tu decisión en el pie de página.</span><span data-lang="en" hidden>I use Google Analytics to count visits and see which sections people read. It only runs if you accept, and you can change your choice in the footer.</span></p>
@@ -1182,6 +1197,30 @@ html[lang="en"] .lang::before { transform: translateX(100%); }
     else if (a.matches('[data-poster]')) track('poster_open', { poster: a.dataset.es });
     else if (a.matches('.lang button')) track('lang_switch', { lang: a.dataset.set });
   });
+}
+</script>
+
+<script>
+{
+  const btn = document.querySelector('[data-totop]');
+  const hero = document.getElementById('top');
+  const consent = document.getElementById('consent');
+  if (btn && hero && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');
+    let heroIn = true;
+    const sync = () => btn.toggleAttribute('data-off', heroIn || (consent && !consent.hidden));
+    new IntersectionObserver(([e]) => { heroIn = e.isIntersecting; sync(); }).observe(hero);
+    if (consent) new MutationObserver(sync).observe(consent, { attributes: true, attributeFilter: ['hidden'] });
+    sync();
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+      hero.setAttribute('tabindex', '-1');
+      hero.focus({ preventScroll: true });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  }
 }
 </script>
 </body>
